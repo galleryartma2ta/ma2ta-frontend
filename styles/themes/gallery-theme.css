@@ -1,0 +1,85 @@
+/* gallery-theme.css - تم مخصوص گالری هنری */
+
+:root {
+    /* تم‌های ویژه گالری */
+    --gallery-accent-1: #a67c52; /* قهوه‌ای طلایی - مناسب برای قاب‌های هنری */
+    --gallery-accent-2: #c19a6b; /* قهوه‌ای روشن - مناسب برای پس‌زمینه‌های نرم */
+    --gallery-accent-3: #d4b483; /* طلایی روشن - برای تاکید ظریف */
+    --gallery-accent-4: #227093; /* آبی نفتی - برای تضاد با رنگ‌های گرم */
+    --gallery-accent-5: #34ace0; /* آبی روشن - برای دکمه‌های فراخوان عمل */
+
+    /* تنظیمات اختصاصی گالری */
+    --primary-color: var(--gallery-accent-4);
+    --primary-dark: #1a5673;
+    --primary-light: #40b8e0;
+
+    --secondary-color: var(--gallery-accent-1);
+    --secondary-dark: #8e6b47;
+    --secondary-light: #d4b483;
+
+    /* سایه‌های گالری */
+    --gallery-shadow-artwork: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --gallery-shadow-card: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+    /* قاب‌ها */
+    --frame-border-width: 8px;
+    --frame-padding: 12px;
+    --frame-color: var(--gallery-accent-1);
+}
+
+/* قاب‌های هنری */
+.art-frame {
+    border: var(--frame-border-width) solid var(--frame-color);
+    box-shadow: var(--gallery-shadow-artwork);
+    padding: var(--frame-padding);
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.art-frame.modern {
+    border: 4px solid var(--modern-color-1);
+    padding: 20px;
+}
+
+.art-frame.classic {
+    border: 12px solid var(--classic-color-2);
+    padding: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.art-frame.minimalist {
+    border: 1px solid var(--neutral-300);
+    padding: 24px;
+}
+
+/* دکمه‌های گالری */
+.btn-gallery {
+    background-color: var(--gallery-accent-1);
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.03em;
+    padding: var(--spacing-sm) var(--spacing-xl);
+}
+
+.btn-gallery:hover {
+    background-color: #95704A;
+    box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.2);
+}
+
+.btn-gallery.btn-gallery-outline {
+    background-color: transparent;
+    border: 2px solid var(--gallery-accent-1);
+    color: var(--gallery-accent-1);
+}
+
+.btn-gallery.btn-gallery-outline:hover {
+    background-color: var(--gallery-accent-1);
+    color: white;
+}
+
+/* دارک مود گالری */
+[data-theme="dark"] .art-frame {
+    background-color: var(--neutral-900);
+    border-color: var(--gallery-accent-2);
+}

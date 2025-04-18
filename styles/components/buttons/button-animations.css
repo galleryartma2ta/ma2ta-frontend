@@ -1,0 +1,279 @@
+/* exhibition-card.css - استایل‌های کارت نمایشگاه */
+
+/* کارت‌های نمایشگاه */
+.exhibition-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
+}
+
+.exhibition-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.exhibition-card-img {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.exhibition-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.exhibition-card:hover .exhibition-card-img img {
+    transform: scale(1.1);
+}
+
+.exhibition-card-date {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+.exhibition-card-content {
+    padding: var(--spacing-md);
+}
+
+.exhibition-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+    color: var(--neutral-900);
+}
+
+.exhibition-card-location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exhibition-card-desc {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+}
+
+.exhibition-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--neutral-200);
+}
+
+.exhibition-card-artists {
+    display: flex;
+}
+
+.exhibition-card-artist {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    overflow: hidden;
+    margin-left: -10px;
+}
+
+.exhibition-card-artist:first-child {
+    margin-left: 0;
+}
+
+.exhibition-card-artist img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exhibition-card-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--neutral-200);
+    color: var(--neutral-700);
+    font-size: var(--font-size-xs);
+    margin-left: -10px;
+}
+
+/* کارت نمایشگاه برجسته */
+.exhibition-card-featured {
+    position: relative;
+    height: 400px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.exhibition-card-featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exhibition-card-featured-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--spacing-xl);
+    color: white;
+}
+
+.exhibition-card-featured-dates {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.exhibition-card-featured-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exhibition-card-featured-location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-md);
+    opacity: 0.9;
+}
+
+.exhibition-card-featured-desc {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* کارت نمایشگاه کوچک (برای لیست) */
+.exhibition-card-small {
+    display: flex;
+    background-color: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal) ease;
+}
+
+.exhibition-card-small:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.exhibition-card-small-img {
+    width: 80px;
+    height: 80px;
+}
+
+.exhibition-card-small-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exhibition-card-small-content {
+    flex: 1;
+    padding: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.exhibition-card-small-title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-xs);
+    color: var(--neutral-900);
+}
+
+.exhibition-card-small-details {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    color: var(--neutral-600);
+}
+
+.exhibition-card-small-date {
+    margin-right: var(--spacing-md);
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .exhibition-card-featured {
+        height: 300px;
+    }
+
+    .exhibition-card-featured-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .exhibition-card-featured-desc {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* دارک مود */
+[data-theme="dark"] .exhibition-card,
+[data-theme="dark"] .exhibition-card-small {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .exhibition-card-title,
+[data-theme="dark"] .exhibition-card-small-title {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .exhibition-card-location,
+[data-theme="dark"] .exhibition-card-small-details {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .exhibition-card-desc {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-card-footer {
+    border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .exhibition-card-artist {
+    border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .exhibition-card-more {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}

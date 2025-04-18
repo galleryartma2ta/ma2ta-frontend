@@ -1,0 +1,110 @@
+:root {
+    /* رنگ‌های اصلی */
+    --primary-color: #3a7cb2; /* آبی هنری */
+    --primary-dark: #2c5a84;
+    --primary-light: #4f93c8;
+
+    /* رنگ‌های ثانویه */
+    --secondary-color: #e6b17e; /* طلایی هنری */
+    --secondary-dark: #d29a65;
+    --secondary-light: #f0c59a;
+
+    /* رنگ‌های خنثی */
+    --neutral-50: #fafafa;
+    --neutral-100: #f5f5f5;
+    --neutral-200: #e5e5e5;
+    --neutral-300: #d4d4d4;
+    --neutral-400: #a3a3a3;
+    --neutral-500: #737373;
+    --neutral-600: #525252;
+    --neutral-700: #404040;
+    --neutral-800: #262626;
+    --neutral-900: #171717;
+
+    /* رنگ‌های عملیاتی */
+    --success: #4ade80;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --info: #3b82f6;
+
+    /* فاصله‌گذاری */
+    --spacing-xs: 0.25rem; /* 4px */
+    --spacing-sm: 0.5rem;  /* 8px */
+    --spacing-md: 1rem;    /* 16px */
+    --spacing-lg: 1.5rem;  /* 24px */
+    --spacing-xl: 2rem;    /* 32px */
+    --spacing-2xl: 2.5rem; /* 40px */
+    --spacing-3xl: 3rem;   /* 48px */
+
+    /* سایه‌ها */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* گردی گوشه‌ها */
+    --radius-sm: 0.25rem; /* 4px */
+    --radius-md: 0.375rem; /* 6px */
+    --radius-lg: 0.5rem; /* 8px */
+    --radius-xl: 0.75rem; /* 12px */
+    --radius-2xl: 1rem; /* 16px */
+    --radius-full: 9999px;
+
+    /* فونت‌ها */
+    --font-primary: 'Vazirmatn', 'Roboto', sans-serif;
+    --font-secondary: 'IRANSans', 'Lato', sans-serif;
+    --font-heading: 'IRANYekan', 'Poppins', sans-serif;
+
+    /* وزن فونت */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* اندازه فونت */
+    --font-size-xs: 0.75rem; /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-base: 1rem; /* 16px */
+    --font-size-lg: 1.125rem; /* 18px */
+    --font-size-xl: 1.25rem; /* 20px */
+    --font-size-2xl: 1.5rem; /* 24px */
+    --font-size-3xl: 1.875rem; /* 30px */
+    --font-size-4xl: 2.25rem; /* 36px */
+
+    /* انیمیشن */
+    --transition-fast: 150ms;
+    --transition-normal: 250ms;
+    --transition-slow: 350ms;
+
+    /* لایه‌ها */
+    --z-base: 1;
+    --z-dropdown: 10;
+    --z-sticky: 100;
+    --z-fixed: 1000;
+    --z-modal: 2000;
+    --z-toast: 3000;
+    --z-tooltip: 4000;
+}
+
+/* تنظیمات برای دارک مود (اختیاری) */
+[data-theme="dark"] {
+    --primary-color: #4f93c8;
+    --primary-dark: #3a7cb2;
+    --primary-light: #6aa7d8;
+
+    --secondary-color: #f0c59a;
+    --secondary-dark: #e6b17e;
+    --secondary-light: #f8d7b5;
+
+    --neutral-50: #171717;
+    --neutral-100: #262626;
+    --neutral-200: #404040;
+    --neutral-300: #525252;
+    --neutral-400: #737373;
+    --neutral-500: #a3a3a3;
+    --neutral-600: #d4d4d4;
+    --neutral-700: #e5e5e5;
+    --neutral-800: #f5f5f5;
+    --neutral-900: #fafafa;
+}

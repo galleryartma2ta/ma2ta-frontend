@@ -1,0 +1,465 @@
+/* modal.css - استایل‌های مربوط به مدال‌ها */
+
+/* کانتینر خارجی مدال */
+.modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    padding: var(--spacing-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal) ease, visibility var(--transition-normal) ease;
+}
+
+.modal-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* پس‌زمینه نیمه شفاف */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: var(--z-modal) - 1;
+}
+
+/* باکس اصلی مدال */
+.modal {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    background-color: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform var(--transition-normal) ease, opacity var(--transition-normal) ease;
+    z-index: var(--z-modal);
+}
+
+.modal-container.active .modal {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* هدر مدال */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--neutral-500);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast) ease;
+}
+
+.modal-close:hover {
+    background-color: var(--neutral-100);
+    color: var(--neutral-900);
+}
+
+/* بدنه مدال */
+.modal-body {
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* فوتر مدال */
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-top: 1px solid var(--neutral-200);
+    background-color: var(--neutral-50);
+}
+
+/* اندازه‌های مختلف مدال */
+.modal-sm {
+    max-width: 400px;
+}
+
+.modal-lg {
+    max-width: 700px;
+}
+
+.modal-xl {
+    max-width: 900px;
+}
+
+.modal-fullscreen {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    margin: 0;
+}
+
+/* مدال محتوا مرکزی */
+.modal-centered .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* مدال تصویر */
+.modal-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+/* مدال‌های خاص */
+.modal-confirm .modal-body {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.modal-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.modal-icon-success {
+    background-color: rgba(74, 222, 128, 0.1);
+    color: var(--success);
+}
+
+.modal-icon-error {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+}
+
+.modal-icon-warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.modal-icon-info {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+}
+
+.modal-confirm-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--neutral-900);
+}
+
+.modal-confirm-message {
+    font-size: var(--font-size-base);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* مدال فرم */
+.modal-form .modal-body {
+    padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+/* مدال سایدبار */
+.modal-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    max-width: 90%;
+    height: 100%;
+    border-radius: 0;
+    border-top-left-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
+    transform: translateX(100%);
+}
+
+.modal-container.active .modal-sidebar {
+    transform: translateX(0);
+}
+
+/* دکمه‌های مدال */
+.modal-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+    border: none;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.modal-btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.modal-btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.modal-btn-secondary {
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+}
+
+.modal-btn-secondary:hover {
+    background-color: var(--neutral-200);
+    color: var(--neutral-900);
+}
+
+.modal-btn-danger {
+    background-color: var(--error);
+    color: white;
+}
+
+.modal-btn-danger:hover {
+    background-color: #D32F2F; /* تیره‌تر از مقدار اصلی */
+}
+
+/* انیمیشن‌های مدال */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInTop {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+.modal-animation-fade .modal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-animation-scale .modal {
+    animation: scaleIn 0.3s ease-out;
+}
+
+.modal-animation-slide-right .modal {
+    animation: slideInRight 0.3s ease-out;
+}
+
+.modal-animation-slide-top .modal {
+    animation: slideInTop 0.3s ease-out;
+}
+
+/* مدال QR کد - مخصوص گالری */
+.modal-qr {
+    max-width: 350px;
+}
+
+.modal-qr .modal-body {
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.modal-qr-code {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto var(--spacing-md);
+    border: 1px solid var(--neutral-200);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+}
+
+.modal-qr-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--neutral-900);
+}
+
+.modal-qr-description {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* مدال محصول سریع */
+.modal-quick-view {
+    max-width: 900px;
+}
+
+.modal-quick-view .modal-body {
+    padding: 0;
+}
+
+.modal-quick-view-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal-quick-view-image {
+    height: 400px;
+}
+
+.modal-quick-view-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-quick-view-details {
+    padding: var(--spacing-lg);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .modal-quick-view-content {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-quick-view-image {
+        height: 300px;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .modal-footer .modal-btn {
+        width: 100%;
+    }
+
+    .modal-sidebar {
+        width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        max-height: 85vh;
+    }
+
+    .modal-header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .modal-body {
+        padding: var(--spacing-md);
+    }
+
+    .modal-footer {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .modal-title {
+        font-size: var(--font-size-base);
+    }
+
+    .modal-quick-view-image {
+        height: 200px;
+    }
+}
+
+/* حالت تاریک */
+[data-theme="dark"] .modal {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .modal-header {
+    border-bottom-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .modal-footer {
+    border-top-color: var(--neutral-700);
+    background-color: var(--neutral-900);
+}
+
+[data-theme="dark"] .modal-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .modal-close {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .modal-close:hover {
+    background-color: var(--neutral-700);
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .modal-btn-secondary {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .modal-btn-secondary:hover {
+    background-color: var(--neutral-600);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .modal-confirm-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .modal-confirm-message {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .modal-qr-code {
+    border-color: var(--neutral-700);
+    background-color: white; /* برای خوانایی QR کد */
+}

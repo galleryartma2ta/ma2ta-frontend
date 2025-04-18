@@ -1,0 +1,246 @@
+/* input.css - استایل‌های انواع فیلدهای ورودی */
+
+/* استایل پایه برای المان‌های ورودی */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-base);
+    font-family: var(--font-primary);
+    color: var(--neutral-900);
+    background-color: white;
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(58, 124, 178, 0.1);
+}
+
+.form-control::placeholder {
+    color: var(--neutral-400);
+    opacity: 1;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: var(--neutral-100);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* سایزهای متفاوت */
+.form-control-sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.form-control-lg {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-lg);
+}
+
+/* input با آیکون */
+.input-icon-container {
+    position: relative;
+}
+
+.input-icon-right {
+    padding-right: var(--spacing-xl);
+}
+
+.input-icon-left {
+    padding-left: var(--spacing-xl);
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--neutral-500);
+    font-size: 1.25rem;
+    pointer-events: none;
+}
+
+.input-icon-right + .input-icon {
+    right: var(--spacing-sm);
+}
+
+.input-icon-left + .input-icon {
+    left: var(--spacing-sm);
+}
+
+/* textarea */
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+textarea.form-control.no-resize {
+    resize: none;
+}
+
+/* input number */
+input[type="number"].form-control {
+    -moz-appearance: textfield;
+}
+
+input[type="number"].form-control::-webkit-outer-spin-button,
+input[type="number"].form-control::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* input range */
+input[type="range"].form-control {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--neutral-300);
+    outline: none;
+    padding: 0;
+    border: none;
+}
+
+input[type="range"].form-control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+}
+
+input[type="range"].form-control::-webkit-slider-thumb:hover {
+    background: var(--primary-dark);
+}
+
+input[type="range"].form-control::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: 0;
+    transition: background 0.15s ease-in-out;
+}
+
+input[type="range"].form-control::-moz-range-thumb:hover {
+    background: var(--primary-dark);
+}
+
+.range-value {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    color: var(--neutral-700);
+    font-size: var(--font-size-sm);
+    text-align: center;
+    border-radius: var(--radius-sm);
+    background: var(--neutral-100);
+    padding: var(--spacing-xs);
+    margin-right: var(--spacing-sm);
+}
+
+/* input color */
+input[type="color"].form-control {
+    height: 40px;
+    padding: 2px;
+}
+
+/* input file */
+input[type="file"].form-control {
+    padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.file-input-container {
+    position: relative;
+}
+
+.file-input-label {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast) ease;
+}
+
+.file-input-label:hover {
+    background-color: var(--primary-dark);
+}
+
+.file-input {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.file-input-text {
+    margin-right: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+}
+
+/* استایل‌های پیشرفته برای search input */
+.search-input-container {
+    position: relative;
+}
+
+.search-input {
+    padding-right: var(--spacing-xl);
+    padding-left: var(--spacing-sm);
+}
+
+.search-icon {
+    position: absolute;
+    right: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--neutral-400);
+}
+
+/* دارک مود */
+[data-theme="dark"] .form-control {
+    background-color: var(--neutral-700);
+    border-color: var(--neutral-600);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: var(--neutral-500);
+}
+
+[data-theme="dark"] .form-control:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(79, 147, 200, 0.2);
+}
+
+[data-theme="dark"] .form-control:disabled,
+[data-theme="dark"] .form-control[readonly] {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .search-icon,
+[data-theme="dark"] .input-icon {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] input[type="range"].form-control {
+    background: var(--neutral-600);
+}
+
+[data-theme="dark"] .range-value {
+    color: var(--neutral-300);
+    background: var(--neutral-800);
+}

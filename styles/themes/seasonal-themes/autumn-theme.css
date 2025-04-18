@@ -1,0 +1,53 @@
+/* autumn-theme.css - تم پاییزی برای کمپین‌های فصلی */
+
+:root[data-season="autumn"] {
+    /* تم‌های رنگی فصل پاییز */
+    --autumn-theme-primary: #a1887f; /* قهوه‌ای متوسط */
+    --autumn-theme-secondary: #e57373; /* قرمز نارنجی */
+    --autumn-theme-accent: #ffd54f; /* زرد طلایی */
+
+    /* بازنویسی رنگ‌های اصلی */
+    --primary-color: var(--autumn-theme-primary);
+    --primary-dark: #8d6e63;
+    --primary-light: #d7ccc8;
+
+    --secondary-color: var(--autumn-theme-secondary);
+    --secondary-dark: #ef5350;
+    --secondary-light: #ffcdd2;
+
+    /* تنظیمات پاییزی */
+    --body-background: linear-gradient(to bottom, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)),
+    url('/assets/images/autumn-bg-pattern.jpg');
+    --card-border-color: var(--autumn-theme-primary);
+}
+
+/* استایل‌های خاص پاییز */
+:root[data-season="autumn"] .section-title {
+    color: #6d4c41;
+}
+
+:root[data-season="autumn"] .card {
+    border-top: 3px solid var(--autumn-theme-primary);
+}
+
+:root[data-season="autumn"] .btn-primary {
+    background-color: var(--autumn-theme-primary);
+    border-color: var(--autumn-theme-primary);
+}
+
+:root[data-season="autumn"] .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+:root[data-season="autumn"] .special-offer-badge {
+    background-color: var(--autumn-theme-accent);
+    color: #5d4037;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-medium);
+}
+
+:root[data-season="autumn"] .product-card {
+    box-shadow: 0 6px 16px rgba(161, 136, 127, 0.2);
+}

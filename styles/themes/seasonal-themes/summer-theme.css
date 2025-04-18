@@ -1,0 +1,54 @@
+/* summer-theme.css - تم تابستانی برای کمپین‌های فصلی */
+
+:root[data-season="summer"] {
+    /* تم‌های رنگی فصل تابستان */
+    --summer-theme-primary: #ffb74d; /* نارنجی روشن */
+    --summer-theme-secondary: #fff176; /* زرد روشن */
+    --summer-theme-accent: #4fc3f7; /* آبی آسمانی */
+
+    /* بازنویسی رنگ‌های اصلی */
+    --primary-color: var(--summer-theme-primary);
+    --primary-dark: #ff9800;
+    --primary-light: #ffe0b2;
+
+    --secondary-color: var(--summer-theme-secondary);
+    --secondary-dark: #ffee58;
+    --secondary-light: #fffde7;
+
+    /* تنظیمات تابستانی */
+    --body-background: linear-gradient(to bottom, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+    url('/assets/images/summer-bg-pattern.jpg');
+    --card-border-color: var(--summer-theme-primary);
+}
+
+/* استایل‌های خاص تابستان */
+:root[data-season="summer"] .section-title {
+    color: #f57c00;
+}
+
+:root[data-season="summer"] .card {
+    border-top: 3px solid var(--summer-theme-primary);
+}
+
+:root[data-season="summer"] .btn-primary {
+    background-color: var(--summer-theme-primary);
+    border-color: var(--summer-theme-primary);
+    color: #7b5000;
+}
+
+:root[data-season="summer"] .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+:root[data-season="summer"] .special-offer-badge {
+    background-color: var(--summer-theme-accent);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-medium);
+}
+
+:root[data-season="summer"] .product-card {
+    box-shadow: 0 6px 16px rgba(255, 183, 77, 0.2);
+}

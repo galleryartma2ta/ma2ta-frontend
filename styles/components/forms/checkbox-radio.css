@@ -1,0 +1,329 @@
+/* checkbox-radio.css - استایل‌های چک‌باکس و رادیو */
+
+/* استایل برای چک‌باکس و رادیو */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-left: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+.form-check-label {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: var(--font-weight-regular);
+}
+
+/* گروه چک‌باکس‌ها و رادیوها */
+.form-check-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-check-group-title {
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-sm);
+    color: var(--neutral-700);
+}
+
+.form-check-inline {
+    display: inline-flex;
+    align-items: center;
+    margin-left: var(--spacing-lg);
+}
+
+.form-check-inline:first-child {
+    margin-left: 0;
+}
+
+/* استایل برای چک‌باکس سفارشی */
+.custom-checkbox {
+    position: relative;
+    padding-right: 28px;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+}
+
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast) ease;
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+    border-color: var(--primary-color);
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.custom-checkbox .checkmark:after {
+    right: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* استایل برای رادیو سفارشی */
+.custom-radio {
+    position: relative;
+    padding-right: 28px;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.radiomark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: 1px solid var(--neutral-300);
+    border-radius: 50%;
+    transition: all var(--transition-fast) ease;
+}
+
+.custom-radio:hover input ~ .radiomark {
+    border-color: var(--primary-color);
+}
+
+.custom-radio input:checked ~ .radiomark {
+    background-color: white;
+    border-color: var(--primary-color);
+}
+
+.radiomark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-radio input:checked ~ .radiomark:after {
+    display: block;
+}
+
+.custom-radio .radiomark:after {
+    top: 4px;
+    right: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+/* استایل برای switch */
+.custom-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.custom-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--neutral-300);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal) ease;
+}
+
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    right: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all var(--transition-normal) ease;
+}
+
+.custom-switch input:checked + .switch-slider {
+    background-color: var(--primary-color);
+}
+
+.custom-switch input:checked + .switch-slider:before {
+    transform: translateX(-20px);
+}
+
+.custom-switch input:focus + .switch-slider {
+    box-shadow: 0 0 0 3px rgba(58, 124, 178, 0.2);
+}
+
+.switch-label {
+    margin-right: var(--spacing-md);
+    user-select: none;
+}
+
+/* رنگ‌های مختلف برای کامپوننت switch */
+.switch-primary input:checked + .switch-slider {
+    background-color: var(--primary-color);
+}
+
+.switch-secondary input:checked + .switch-slider {
+    background-color: var(--secondary-color);
+}
+
+.switch-success input:checked + .switch-slider {
+    background-color: var(--success);
+}
+
+.switch-danger input:checked + .switch-slider {
+    background-color: var(--error);
+}
+
+.switch-warning input:checked + .switch-slider {
+    background-color: var(--warning);
+}
+
+.switch-info input:checked + .switch-slider {
+    background-color: var(--info);
+}
+
+/* گروه checkbox/radio با layout گرید */
+.checkbox-grid,
+.radio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.checkbox-grid-2,
+.radio-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.checkbox-grid-4,
+.radio-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+    .checkbox-grid,
+    .radio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .checkbox-grid-4,
+    .radio-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .checkbox-grid,
+    .radio-grid,
+    .checkbox-grid-2,
+    .radio-grid-2,
+    .checkbox-grid-4,
+    .radio-grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* دارک مود */
+[data-theme="dark"] .form-check-label {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .form-check-group-title {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .checkmark {
+    background-color: var(--neutral-700);
+    border-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .custom-checkbox:hover input ~ .checkmark {
+    border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .radiomark {
+    background-color: var(--neutral-700);
+    border-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .custom-radio:hover input ~ .radiomark {
+    border-color: var(--primary-light);
+}
+
+[data-theme="dark"] .custom-radio input:checked ~ .radiomark {
+    background-color: var(--neutral-700);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .switch-slider {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .switch-slider:before {
+    background-color: var(--neutral-300);
+}
+
+[data-theme="dark"] .switch-label {
+    color: var(--neutral-300);
+}
