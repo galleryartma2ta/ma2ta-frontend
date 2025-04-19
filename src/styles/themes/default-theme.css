@@ -1,0 +1,54 @@
+/* default-theme.css - تم پیش‌فرض پلتفرم Ma2tA */
+
+:root {
+    /* رنگ‌های اصلی */
+    --primary-color: #3a7cb2; /* آبی هنری */
+    --primary-dark: #2c5a84;
+    --primary-light: #4f93c8;
+
+    /* رنگ‌های ثانویه */
+    --secondary-color: #e6b17e; /* طلایی هنری */
+    --secondary-dark: #d29a65;
+    --secondary-light: #f0c59a;
+
+    /* رنگ‌های خنثی */
+    --neutral-50: #fafafa;
+    --neutral-100: #f5f5f5;
+    --neutral-200: #e5e5e5;
+    --neutral-300: #d4d4d4;
+    --neutral-400: #a3a3a3;
+    --neutral-500: #737373;
+    --neutral-600: #525252;
+    --neutral-700: #404040;
+    --neutral-800: #262626;
+    --neutral-900: #171717;
+
+    /* رنگ‌های عملیاتی */
+    --success: #4ade80;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --info: #3b82f6;
+
+    /* پس‌زمینه و متن */
+    --background-color: var(--neutral-50);
+    --text-color: var(--neutral-800);
+    --heading-color: var(--neutral-900);
+    --link-color: var(--primary-color);
+    --link-hover-color: var(--primary-dark);
+
+    /* کارت‌ها و باکس‌ها */
+    --card-background: white;
+    --card-border: var(--neutral-200);
+    --card-shadow: var(--shadow-md);
+
+    /* هدر و فوتر */
+    --header-background: white;
+    --footer-background: var(--neutral-800);
+    --footer-text: var(--neutral-200);
+
+    /* دکمه‌ها */
+    --button-primary-bg: var(--primary-color);
+    --button-primary-text: white;
+    --button-secondary-bg: var(--secondary-color);
+    --button-secondary-text: var(--neutral-900);
+}

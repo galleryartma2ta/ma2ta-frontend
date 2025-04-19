@@ -1,0 +1,288 @@
+/* react-select.css - استایل سفارشی برای کامپوننت React Select */
+
+/* کانتینر اصلی */
+.select-container {
+    position: relative;
+    width: 100%;
+}
+
+/* کنترل اصلی Select */
+.select__control {
+    background-color: white;
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    min-height: 38px;
+    transition: all var(--transition-fast) ease;
+    box-shadow: none;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+}
+
+.select__control--is-focused {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 2px rgba(58, 124, 178, 0.2) !important;
+}
+
+.select__control--is-disabled {
+    background-color: var(--neutral-100);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.select__control--menu-is-open {
+    border-color: var(--primary-color);
+}
+
+/* ارزش فعلی انتخاب شده */
+.select__value-container {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    direction: rtl;
+    text-align: right;
+}
+
+.select__placeholder {
+    color: var(--neutral-400);
+}
+
+.select__single-value {
+    color: var(--neutral-800);
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/* نشانگرها */
+.select__indicators {
+    direction: ltr;
+}
+
+.select__indicator {
+    color: var(--neutral-500);
+    padding: var(--spacing-xs);
+}
+
+.select__indicator:hover {
+    color: var(--neutral-700);
+}
+
+.select__indicator-separator {
+    background-color: var(--neutral-300);
+}
+
+/* دراپ داون منو */
+.select__menu {
+    background-color: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    margin-top: var(--spacing-xs);
+    z-index: var(--z-dropdown);
+}
+
+.select__menu-list {
+    padding: var(--spacing-xs) 0;
+    direction: rtl;
+}
+
+.select__option {
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    color: var(--neutral-800);
+    font-size: var(--font-size-base);
+}
+
+.select__option--is-focused {
+    background-color: rgba(58, 124, 178, 0.05);
+}
+
+.select__option--is-selected {
+    background-color: rgba(58, 124, 178, 0.1);
+    color: var(--primary-color);
+    font-weight: var(--font-weight-medium);
+}
+
+/* گروه‌بندی گزینه‌ها */
+.select__group-heading {
+    color: var(--neutral-600);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-xs) var(--spacing-md);
+    text-transform: uppercase;
+}
+
+/* مالتی سلکت */
+.select__multi-value {
+    background-color: rgba(58, 124, 178, 0.1);
+    border-radius: var(--radius-sm);
+    margin: 2px;
+    direction: rtl;
+}
+
+.select__multi-value__label {
+    color: var(--primary-color);
+    font-size: var(--font-size-sm);
+    padding: 2px var(--spacing-xs);
+}
+
+.select__multi-value__remove {
+    color: var(--neutral-500);
+    padding: 0 2px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.select__multi-value__remove:hover {
+    background-color: var(--error);
+    color: white;
+}
+
+/* جستجو در select */
+.select__input {
+    color: var(--neutral-800);
+    margin: 0;
+    padding: 0;
+}
+
+/* پیغام بدون نتیجه */
+.select__menu-notice {
+    color: var(--neutral-600);
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+/* اندازه‌های مختلف */
+.select-sm .select__control {
+    min-height: 32px;
+    font-size: var(--font-size-sm);
+}
+
+.select-sm .select__value-container {
+    padding: 2px var(--spacing-xs);
+}
+
+.select-lg .select__control {
+    min-height: 44px;
+    font-size: var(--font-size-lg);
+}
+
+.select-lg .select__value-container {
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* حالت خطا */
+.select--is-invalid .select__control {
+    border-color: var(--error);
+}
+
+.select--is-invalid .select__control--is-focused {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* حالت تاریک */
+[data-theme="dark"] .select__control {
+    background-color: var(--neutral-700);
+    border-color: var(--neutral-600);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .select__single-value {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .select__placeholder {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .select__indicator {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .select__indicator:hover {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .select__indicator-separator {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .select__menu {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .select__option {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .select__option--is-focused {
+    background-color: rgba(79, 147, 200, 0.1);
+}
+
+[data-theme="dark"] .select__option--is-selected {
+    background-color: rgba(79, 147, 200, 0.2);
+    color: var(--primary-light);
+}
+
+[data-theme="dark"] .select__multi-value {
+    background-color: rgba(79, 147, 200, 0.2);
+}
+
+[data-theme="dark"] .select__multi-value__label {
+    color: var(--primary-light);
+}
+
+[data-theme="dark"] .select__multi-value__remove {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .select__control--is-disabled {
+    background-color: var(--neutral-800);
+    border-color: var(--neutral-700);
+}
+
+/* تنظیمات سفارشی برای گالری */
+.gallery-select .select__control {
+    border-color: var(--gallery-accent-1);
+    border-width: 2px;
+}
+
+.gallery-select .select__control--is-focused {
+    border-color: var(--gallery-accent-4) !important;
+    box-shadow: 0 0 0 2px rgba(34, 112, 147, 0.2) !important;
+}
+
+.gallery-select .select__option--is-selected {
+    background-color: rgba(166, 124, 82, 0.2);
+    color: var(--gallery-accent-1);
+}
+
+/* انیمیشن منو */
+.select__menu-enter {
+    opacity: 0;
+    transform: translateY(5px);
+}
+
+.select__menu-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.select__menu-exit {
+    opacity: 1;
+}
+
+.select__menu-exit-active {
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 150ms ease, transform 150ms ease;
+}
+
+/* استایل‌های واکنشگرا */
+@media (max-width: 576px) {
+    .select__menu {
+        margin-top: 3px;
+        width: 100%;
+    }
+
+    .select__option {
+        padding: var(--spacing-sm);
+    }
+}

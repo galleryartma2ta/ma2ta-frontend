@@ -1,0 +1,847 @@
+/* artist-profile.css - استایل صفحه پروفایل هنرمند */
+
+/* طرح‌بندی کلی صفحه پروفایل */
+.artist-profile-page {
+    padding: var(--spacing-xl) 0;
+}
+
+/* هدر پروفایل */
+.artist-profile-header {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+}
+
+.artist-profile-cover {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+.artist-profile-info {
+    display: flex;
+    margin-top: -80px;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.artist-profile-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 5px solid white;
+    background-color: white;
+    margin-right: var(--spacing-lg);
+    flex-shrink: 0;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.artist-profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artist-profile-content {
+    padding-top: 80px;
+    flex: 1;
+}
+
+.artist-profile-name {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+}
+
+.artist-profile-title {
+    font-size: var(--font-size-lg);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.artist-profile-bio {
+    font-size: var(--font-size-base);
+    color: var(--neutral-700);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+}
+
+.artist-profile-meta {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.artist-profile-meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+}
+
+.artist-profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.artist-profile-tag {
+    font-size: var(--font-size-xs);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+}
+
+.artist-profile-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.artist-profile-follow-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.artist-profile-follow-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.artist-profile-message-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.artist-profile-message-btn:hover {
+    background-color: var(--neutral-200);
+}
+
+.artist-profile-share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.artist-profile-share-btn:hover {
+    background-color: var(--neutral-200);
+}
+
+/* آمار هنرمند */
+.artist-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.artist-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.artist-stat-value {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+}
+
+.artist-stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+}
+
+/* تب‌های پروفایل */
+.artist-profile-tabs {
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.artist-profile-tabs-list {
+    display: flex;
+    gap: var(--spacing-md);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.artist-profile-tabs-list::-webkit-scrollbar {
+    display: none;
+}
+
+.artist-profile-tab {
+    padding: var(--spacing-md) var(--spacing-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--neutral-700);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--transition-fast) ease;
+}
+
+.artist-profile-tab:hover {
+    color: var(--primary-color);
+}
+
+.artist-profile-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.artist-profile-tab-content {
+    display: none;
+}
+
+.artist-profile-tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* گرید آثار */
+.artist-works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.artist-work-card {
+    position: relative;
+    background-color: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
+}
+
+.artist-work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.artist-work-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.artist-work-content {
+    padding: var(--spacing-md);
+}
+
+.artist-work-title {
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-base);
+}
+
+.artist-work-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+}
+
+.artist-work-category {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-600);
+    background-color: var(--neutral-100);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+}
+
+.artist-work-year {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-600);
+}
+
+.artist-work-price {
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-color);
+    font-size: var(--font-size-base);
+}
+
+.artist-work-badge {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    z-index: 1;
+}
+
+.artist-work-badge-new {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.artist-work-badge-sold {
+    background-color: var(--error);
+    color: white;
+}
+
+.artist-work-badge-featured {
+    background-color: var(--gallery-accent-1);
+    color: white;
+}
+
+/* نمایشگاه‌ها */
+.artist-exhibitions {
+    margin-bottom: var(--spacing-xl);
+}
+
+.artist-exhibitions-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-md);
+    color: var(--neutral-900);
+}
+
+.artist-exhibitions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.artist-exhibition-card {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
+}
+
+.artist-exhibition-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.artist-exhibition-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.artist-exhibition-content {
+    padding: var(--spacing-md);
+}
+
+.artist-exhibition-title {
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-base);
+}
+
+.artist-exhibition-date {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-xs);
+}
+
+.artist-exhibition-location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-md);
+}
+
+.artist-exhibition-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--primary-color);
+}
+
+.artist-exhibition-link:hover {
+    color: var(--primary-dark);
+}
+
+/* بیوگرافی */
+.artist-biography {
+    max-width: 800px;
+    margin-bottom: var(--spacing-xl);
+}
+
+.artist-biography-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-md);
+    color: var(--neutral-900);
+}
+
+.artist-biography-content {
+    font-size: var(--font-size-base);
+    color: var(--neutral-800);
+    line-height: 1.8;
+}
+
+.artist-biography-content p {
+    margin-bottom: var(--spacing-md);
+}
+
+.artist-biography-timeline {
+    margin-top: var(--spacing-xl);
+}
+
+.artist-timeline-title {
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+}
+
+.artist-timeline-item {
+    display: flex;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.artist-timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.artist-timeline-item:before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    right: 8px;
+    bottom: -24px;
+    width: 2px;
+    background-color: var(--neutral-200);
+    z-index: 1;
+}
+
+.artist-timeline-item:last-child:before {
+    display: none;
+}
+
+.artist-timeline-year {
+    flex: 0 0 80px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    position: relative;
+    z-index: 2;
+}
+
+.artist-timeline-year:before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    z-index: 2;
+}
+
+.artist-timeline-content {
+    flex: 1;
+    padding-right: var(--spacing-md);
+}
+
+.artist-timeline-event {
+    font-weight: var(--font-weight-medium);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+}
+
+.artist-timeline-desc {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+}
+
+/* تماس و راه‌های ارتباطی */
+.artist-contact {
+    margin-bottom: var(--spacing-xl);
+}
+
+.artist-contact-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-md);
+    color: var(--neutral-900);
+}
+
+.artist-contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.artist-contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.artist-contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--neutral-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.artist-contact-info {
+    flex: 1;
+}
+
+.artist-contact-label {
+    font-weight: var(--font-weight-medium);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+}
+
+.artist-contact-value {
+    color: var(--neutral-700);
+}
+
+.artist-contact-value a {
+    color: var(--primary-color);
+}
+
+.artist-contact-value a:hover {
+    text-decoration: underline;
+}
+
+.artist-contact-social {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.artist-contact-social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--neutral-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutral-800);
+    font-size: 1.125rem;
+    transition: all var(--transition-normal) ease;
+}
+
+.artist-contact-social-link:hover {
+    transform: translateY(-3px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* "نمایش بیشتر" دکمه */
+.artist-load-more {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+}
+
+.artist-load-more-btn {
+    padding: var(--spacing-sm) var(--spacing-xl);
+    background-color: var(--neutral-100);
+    color: var(--neutral-800);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.artist-load-more-btn:hover {
+    background-color: var(--neutral-200);
+}
+
+/* ریسپانسیو */
+@media (max-width: 992px) {
+    .artist-profile-cover {
+        height: 250px;
+    }
+
+    .artist-profile-avatar {
+        width: 140px;
+        height: 140px;
+    }
+
+    .artist-profile-content {
+        padding-top: 60px;
+    }
+
+    .artist-profile-name {
+        font-size: var(--font-size-2xl);
+    }
+
+    .artist-stats {
+        flex-wrap: wrap;
+        gap: var(--spacing-lg);
+    }
+
+    .artist-exhibitions-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .artist-profile-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .artist-profile-avatar {
+        margin-right: 0;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .artist-profile-content {
+        padding-top: 0;
+    }
+
+    .artist-profile-meta {
+        justify-content: center;
+    }
+
+    .artist-profile-tags {
+        justify-content: center;
+    }
+
+    .artist-profile-actions {
+        justify-content: center;
+    }
+
+    .artist-biography {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .artist-biography-title {
+        text-align: center;
+    }
+
+    .artist-exhibitions-title {
+        text-align: center;
+    }
+
+    .artist-contact-title {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .artist-profile-cover {
+        height: 200px;
+    }
+
+    .artist-profile-avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .artist-profile-name {
+        font-size: var(--font-size-xl);
+    }
+
+    .artist-profile-title {
+        font-size: var(--font-size-base);
+    }
+
+    .artist-profile-meta {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .artist-profile-tab {
+        padding: var(--spacing-sm) var(--spacing-xs);
+    }
+
+    .artist-works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .artist-exhibitions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* دارک مود */
+[data-theme="dark"] .artist-profile-avatar {
+    border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .artist-profile-name {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .artist-profile-bio {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .artist-profile-meta-item {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .artist-profile-tag {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .artist-profile-message-btn {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .artist-profile-message-btn:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .artist-profile-share-btn {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .artist-profile-share-btn:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .artist-stats {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .artist-stat-label {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .artist-profile-tabs {
+    border-bottom-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .artist-profile-tab {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .artist-work-card,
+[data-theme="dark"] .artist-exhibition-card {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .artist-work-title,
+[data-theme="dark"] .artist-exhibition-title {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .artist-work-category {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .artist-work-year,
+[data-theme="dark"] .artist-exhibition-date,
+[data-theme="dark"] .artist-exhibition-location {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .artist-biography-title,
+[data-theme="dark"] .artist-exhibitions-title,
+[data-theme="dark"] .artist-contact-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .artist-biography-content {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .artist-timeline-item:before {
+    background-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .artist-timeline-event {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .artist-timeline-desc {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .artist-contact-icon {
+    background-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .artist-contact-label {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .artist-contact-value {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .artist-contact-social-link {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .artist-load-more-btn {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .artist-load-more-btn:hover {
+    background-color: var(--neutral-600);
+}

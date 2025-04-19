@@ -1,0 +1,141 @@
+/* featured-artists.css - استایل بخش هنرمندان برجسته صفحه اصلی */
+
+.featured-artists-section {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--neutral-50);
+}
+
+.featured-artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.artist-card {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
+}
+
+.artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.artist-card-cover {
+    height: 100px;
+    position: relative;
+    background-color: var(--primary-light);
+    background-image: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+}
+
+.artist-card-avatar {
+    position: absolute;
+    bottom: -40px;
+    right: calc(50% - 40px);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.artist-card-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artist-card-content {
+    padding: var(--spacing-lg);
+    padding-top: 50px;
+    text-align: center;
+}
+
+.artist-card-name {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+    color: var(--neutral-900);
+}
+
+.artist-card-title {
+    font-size: var(--font-size-sm);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.artist-card-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.artist-card-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artist-card-stat-value {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-800);
+}
+
+.artist-card-stat-label {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-600);
+}
+
+.artist-card-link {
+    color: var(--primary-color);
+    font-size: var(--font-size-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.artist-card-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.view-all-artists {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* حالت تاریک */
+[data-theme="dark"] .featured-artists-section {
+    background-color: var(--neutral-900);
+}
+
+[data-theme="dark"] .artist-card {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .artist-card-avatar {
+    border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .artist-card-name {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .artist-card-title {
+    color: var(--primary-light);
+}
+
+[data-theme="dark"] .artist-card-stat-value {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .artist-card-stat-label {
+    color: var(--neutral-400);
+}

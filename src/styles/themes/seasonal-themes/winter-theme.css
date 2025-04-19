@@ -1,0 +1,72 @@
+/* winter-theme.css - تم زمستانی برای کمپین‌های فصلی */
+
+:root[data-season="winter"] {
+    /* تم‌های رنگی فصل زمستان */
+    --winter-theme-primary: #90caf9; /* آبی روشن */
+    --winter-theme-secondary: #cfd8dc; /* خاکستری روشن */
+    --winter-theme-accent: #b39ddb; /* بنفش روشن */
+
+    /* بازنویسی رنگ‌های اصلی */
+    --primary-color: var(--winter-theme-primary);
+    --primary-dark: #64b5f6;
+    --primary-light: #bbdefb;
+
+    --secondary-color: var(--winter-theme-secondary);
+    --secondary-dark: #b0bec5;
+    --secondary-light: #eceff1;
+
+    /* تنظیمات زمستانی */
+    --body-background: linear-gradient(to bottom, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)),
+    url('/assets/images/winter-bg-pattern.jpg');
+    --card-border-color: var(--winter-theme-primary);
+}
+
+/* استایل‌های خاص زمستان */
+:root[data-season="winter"] .section-title {
+    color: #1976d2;
+}
+
+:root[data-season="winter"] .card {
+    border-top: 3px solid var(--winter-theme-primary);
+}
+
+:root[data-season="winter"] .btn-primary {
+    background-color: var(--winter-theme-primary);
+    border-color: var(--winter-theme-primary);
+    color: #1565c0;
+}
+
+:root[data-season="winter"] .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+:root[data-season="winter"] .special-offer-badge {
+    background-color: var(--winter-theme-accent);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-medium);
+}
+
+:root[data-season="winter"] .product-card {
+    box-shadow: 0 6px 16px rgba(144, 202, 249, 0.3);
+}
+
+/* افکت برف (اختیاری) */
+:root[data-season="winter"] .snow-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url('/assets/images/snow.png');
+    animation: snow 20s linear infinite;
+}
+
+@keyframes snow {
+    0% { background-position: 0 0; }
+    100% { background-position: 500px 1000px; }
+}

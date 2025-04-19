@@ -1,0 +1,220 @@
+/* rtl-components.css - استایل‌های RTL برای کامپوننت‌های خاص */
+
+/* کامپوننت‌های ناوبری */
+.nav-dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.nav-dropdown-toggle .icon {
+    margin-right: var(--spacing-xs);
+    margin-left: 0;
+    transform: rotate(180deg);
+}
+
+.nav-breadcrumb .separator {
+    transform: rotate(180deg);
+}
+
+/* کامپوننت‌های فرم */
+.input-icon-container .input-icon-right {
+    right: var(--spacing-md);
+    left: auto;
+}
+
+.input-icon-container .input-icon-left {
+    left: var(--spacing-md);
+    right: auto;
+}
+
+.form-check {
+    padding-right: 1.75rem;
+    padding-left: 0;
+}
+
+.form-check-input {
+    margin-right: -1.75rem;
+    margin-left: 0;
+}
+
+/* کامپوننت‌های جدول */
+.table th,
+.table td {
+    text-align: right;
+}
+
+.table-sortable .sort-icon {
+    margin-right: var(--spacing-xs);
+    margin-left: 0;
+}
+
+/* کامپوننت‌های اعلان */
+.alert-dismissible {
+    padding-left: 4rem;
+    padding-right: var(--spacing-md);
+}
+
+.alert-dismissible .close {
+    left: var(--spacing-sm);
+    right: auto;
+}
+
+.alert-icon {
+    margin-left: var(--spacing-sm);
+    margin-right: 0;
+}
+
+/* کامپوننت‌های دراپ‌داون */
+.dropdown-menu {
+    right: 0;
+    left: auto;
+    text-align: right;
+}
+
+.dropdown-item {
+    text-align: right;
+}
+
+.dropdown-toggle::after {
+    margin-right: var(--spacing-xs);
+    margin-left: 0;
+}
+
+/* کامپوننت‌های مدال */
+.modal-header .close {
+    margin: -1rem auto -1rem -1rem;
+}
+
+.modal-footer {
+    justify-content: flex-start;
+}
+
+/* کامپوننت‌های کارت */
+.card-header-tabs,
+.card-header-pills {
+    margin-left: 0;
+    margin-right: calc(-1 * var(--spacing-sm));
+}
+
+.card-img-overlay {
+    right: 0;
+    left: auto;
+}
+
+/* کامپوننت‌های محصول */
+.product-card-actions {
+    left: var(--spacing-md);
+    right: auto;
+}
+
+.product-badge {
+    right: var(--spacing-sm);
+    left: auto;
+}
+
+.product-rating .star-icon {
+    margin-left: 2px;
+    margin-right: 0;
+}
+
+/* کامپوننت‌های پیمایش */
+.pagination-item {
+    transform: rotate(180deg);
+}
+
+.carousel-control-prev {
+    right: 0;
+    left: auto;
+}
+
+.carousel-control-next {
+    left: 0;
+    right: auto;
+}
+
+/* کامپوننت‌های فیلتر */
+.filter-list .filter-item-remove {
+    margin-right: var(--spacing-xs);
+    margin-left: 0;
+}
+
+/* کامپوننت‌های هنرمند */
+.artist-card-social {
+    left: var(--spacing-md);
+    right: auto;
+}
+
+.artist-info-label {
+    margin-left: var(--spacing-sm);
+    margin-right: 0;
+}
+
+/* کامپوننت‌های نمایشگاه */
+.exhibition-info-icon {
+    margin-left: var(--spacing-xs);
+    margin-right: 0;
+}
+
+/* کامپوننت‌های سفارش */
+.order-steps-arrow {
+    transform: rotate(180deg);
+}
+
+.order-item-image {
+    margin-left: var(--spacing-md);
+    margin-right: 0;
+}
+
+/* کامپوننت‌های مقاله */
+.article-meta-icon {
+    margin-left: var(--spacing-xs);
+    margin-right: 0;
+}
+
+.article-share-buttons {
+    left: 0;
+    right: auto;
+}
+
+/* کامپوننت‌های کامنت */
+.comment-avatar {
+    margin-left: var(--spacing-md);
+    margin-right: 0;
+}
+
+.comment-replies {
+    margin-right: var(--spacing-xl);
+    margin-left: 0;
+    border-right: 2px solid var(--neutral-200);
+    border-left: none;
+    padding-right: var(--spacing-md);
+    padding-left: 0;
+}
+
+/* کامپوننت‌های جستجو */
+.search-input .search-icon {
+    right: var(--spacing-sm);
+    left: auto;
+}
+
+.search-input input {
+    padding-right: var(--spacing-xl);
+    padding-left: var(--spacing-sm);
+}
+
+.search-results-item-info {
+    margin-right: var(--spacing-md);
+    margin-left: 0;
+}
+
+/* کامپوننت‌های پروفایل */
+.profile-menu-item-icon {
+    margin-left: var(--spacing-sm);
+    margin-right: 0;
+}
+
+/* کامپوننت‌های AR */
+.ar-controls-button {
+    margin-left: var(--spacing-sm);
+    margin-right: 0;
+}

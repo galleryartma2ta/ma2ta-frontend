@@ -1,0 +1,881 @@
+/* exhibition-detail.css - استایل صفحه جزئیات نمایشگاه */
+
+/* طرح‌بندی کلی صفحه جزئیات نمایشگاه */
+.exhibition-detail-page {
+    padding: var(--spacing-xl) 0;
+}
+
+/* هدر نمایشگاه */
+.exhibition-detail-header {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+}
+
+.exhibition-detail-cover {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+.exhibition-detail-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.2) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--spacing-xl);
+    color: white;
+    border-radius: var(--radius-lg);
+}
+
+.exhibition-detail-status {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-md);
+}
+
+.exhibition-detail-status-active {
+    background-color: var(--success);
+    color: white;
+}
+
+.exhibition-detail-status-upcoming {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.exhibition-detail-status-past {
+    background-color: var(--neutral-500);
+    color: white;
+}
+
+.exhibition-detail-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+}
+
+.exhibition-detail-date {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exhibition-detail-location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* محتوای نمایشگاه */
+.exhibition-detail-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.exhibition-detail-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+/* توضیحات نمایشگاه */
+.exhibition-description {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.exhibition-description-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.exhibition-description-content {
+    font-size: var(--font-size-base);
+    color: var(--neutral-700);
+    line-height: 1.8;
+}
+
+.exhibition-description-content p {
+    margin-bottom: var(--spacing-md);
+}
+
+.exhibition-description-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* گالری نمایشگاه */
+.exhibition-gallery {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.exhibition-gallery-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-md);
+}
+
+.exhibition-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.exhibition-gallery-item {
+    aspect-ratio: 1/1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: all var(--transition-normal) ease;
+}
+
+.exhibition-gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.exhibition-gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exhibition-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all var(--transition-normal) ease;
+}
+
+.exhibition-gallery-item:hover .exhibition-gallery-overlay {
+    opacity: 1;
+}
+
+.exhibition-gallery-icon {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.exhibition-gallery-more {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
+.exhibition-gallery-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast) ease;
+    cursor: pointer;
+}
+
+.exhibition-gallery-more-btn:hover {
+    background-color: var(--neutral-200);
+}
+
+/* سایدبار نمایشگاه */
+.exhibition-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* جزئیات نمایشگاه */
+.exhibition-details {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.exhibition-details-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-md);
+}
+
+.exhibition-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.exhibition-details-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.exhibition-details-label {
+    font-weight: var(--font-weight-medium);
+    color: var(--neutral-600);
+    font-size: var(--font-size-sm);
+}
+
+.exhibition-details-value {
+    color: var(--neutral-800);
+    font-size: var(--font-size-base);
+}
+
+.exhibition-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.exhibition-ticket-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.exhibition-ticket-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.exhibition-calendar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.exhibition-calendar-btn:hover {
+    background-color: var(--neutral-200);
+}
+
+.exhibition-share {
+    margin-top: var(--spacing-md);
+}
+
+.exhibition-share-title {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exhibition-share-links {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.exhibition-share-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--neutral-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutral-700);
+    transition: all var(--transition-normal) ease;
+}
+
+.exhibition-share-link:hover {
+    transform: translateY(-3px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* مکان نمایشگاه */
+.exhibition-location {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.exhibition-location-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-md);
+}
+
+.exhibition-location-map {
+    width: 100%;
+    height: 200px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+    background-color: var(--neutral-100);
+}
+
+.exhibition-location-address {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exhibition-location-icon {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.exhibition-location-text {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    line-height: 1.6;
+}
+
+.exhibition-location-directions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--primary-color);
+    margin-top: var(--spacing-sm);
+}
+
+.exhibition-location-directions:hover {
+    color: var(--primary-dark);
+}
+
+/* هنرمندان نمایشگاه */
+.exhibition-artists {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.exhibition-artists-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-md);
+}
+
+.exhibition-artists-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.exhibition-artist-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.exhibition-artist-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.exhibition-artist-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exhibition-artist-info {
+    flex: 1;
+}
+
+.exhibition-artist-name {
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+}
+
+.exhibition-artist-title {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+}
+
+.exhibition-artist-link {
+    color: var(--primary-color);
+    font-size: var(--font-size-lg);
+    transition: all var(--transition-fast) ease;
+}
+
+.exhibition-artist-link:hover {
+    color: var(--primary-dark);
+    transform: translateX(-5px);
+}
+
+/* آثار برجسته */
+.featured-works {
+    margin-top: var(--spacing-2xl);
+}
+
+.featured-works-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.featured-works-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.featured-work-card {
+    position: relative;
+    background-color: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
+}
+
+.featured-work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.featured-work-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.featured-work-content {
+    padding: var(--spacing-md);
+}
+
+.featured-work-title {
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-base);
+}
+
+.featured-work-artist {
+    font-size: var(--font-size-sm);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.featured-work-price {
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    font-size: var(--font-size-base);
+}
+
+/* برنامه روزانه */
+.exhibition-schedule {
+    margin-top: var(--spacing-xl);
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.exhibition-schedule-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.exhibition-schedule-tabs {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: var(--spacing-xs);
+}
+
+.exhibition-schedule-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.exhibition-schedule-tab {
+    min-width: 100px;
+    text-align: center;
+    padding: var(--spacing-sm);
+    background-color: var(--neutral-100);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.exhibition-schedule-tab:hover {
+    background-color: var(--neutral-200);
+}
+
+.exhibition-schedule-tab.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.exhibition-schedule-content {
+    display: none;
+}
+
+.exhibition-schedule-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.exhibition-schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.exhibition-schedule-item {
+    display: flex;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.exhibition-schedule-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.exhibition-schedule-time {
+    min-width: 100px;
+    text-align: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--neutral-100);
+    border-radius: var(--radius-md);
+    color: var(--neutral-800);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    height: fit-content;
+}
+
+.exhibition-schedule-details {
+    flex: 1;
+}
+
+.exhibition-schedule-event {
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+}
+
+.exhibition-schedule-desc {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exhibition-schedule-presenter {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.exhibition-schedule-presenter-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.exhibition-schedule-presenter-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exhibition-schedule-presenter-name {
+    color: var(--primary-color);
+}
+
+/* نمایشگاه‌های مشابه */
+.similar-exhibitions {
+    margin-top: var(--spacing-2xl);
+}
+
+.similar-exhibitions-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.similar-exhibitions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* ریسپانسیو */
+@media (max-width: 992px) {
+    .exhibition-detail-cover {
+        height: 350px;
+    }
+
+    .exhibition-detail-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .exhibition-detail-content {
+        grid-template-columns: 1fr;
+    }
+
+    .exhibition-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featured-works-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .exhibition-detail-cover {
+        height: 300px;
+    }
+
+    .exhibition-detail-overlay {
+        padding: var(--spacing-lg);
+    }
+
+    .exhibition-detail-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .exhibition-detail-date,
+    .exhibition-detail-location {
+        font-size: var(--font-size-sm);
+    }
+
+    .featured-works-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .exhibition-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .exhibition-details,
+    .exhibition-location {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 576px) {
+    .exhibition-detail-cover {
+        height: 250px;
+    }
+
+    .exhibition-gallery-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .featured-works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .exhibition-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .exhibition-details,
+    .exhibition-location {
+        grid-column: span 1;
+    }
+
+    .exhibition-schedule-tabs {
+        flex-wrap: nowrap;
+    }
+
+    .exhibition-schedule-item {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .exhibition-schedule-time {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+/* دارک مود */
+[data-theme="dark"] .exhibition-description,
+[data-theme="dark"] .exhibition-gallery,
+[data-theme="dark"] .exhibition-details,
+[data-theme="dark"] .exhibition-location,
+[data-theme="dark"] .exhibition-artists,
+[data-theme="dark"] .exhibition-schedule,
+[data-theme="dark"] .featured-work-card {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .exhibition-description-title,
+[data-theme="dark"] .exhibition-gallery-title,
+[data-theme="dark"] .exhibition-details-title,
+[data-theme="dark"] .exhibition-location-title,
+[data-theme="dark"] .exhibition-artists-title,
+[data-theme="dark"] .exhibition-schedule-title,
+[data-theme="dark"] .featured-works-title,
+[data-theme="dark"] .similar-exhibitions-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .exhibition-description-content {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-description-title,
+[data-theme="dark"] .exhibition-schedule-title {
+    border-bottom-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .exhibition-gallery-more-btn {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-gallery-more-btn:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .exhibition-details-label {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .exhibition-details-value {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-calendar-btn {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-calendar-btn:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .exhibition-share-title {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .exhibition-share-link {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-location-map {
+    background-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .exhibition-location-text {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-artist-name {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .exhibition-artist-title {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .featured-work-title {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .featured-work-price {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .exhibition-schedule-tab {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-schedule-tab:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .exhibition-schedule-time {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-schedule-event {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .exhibition-schedule-desc {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .exhibition-schedule-item {
+    border-bottom-color: var(--neutral-700);
+}

@@ -1,0 +1,540 @@
+/* lightbox.css - استایل برای نمایش بزرگنمایی آثار هنری */
+
+/* متغیرهای مخصوص لایت‌باکس */
+:root {
+    --lightbox-bg: rgba(0, 0, 0, 0.9);
+    --lightbox-text: white;
+    --lightbox-caption-bg: rgba(0, 0, 0, 0.7);
+    --lightbox-controls-bg: rgba(255, 255, 255, 0.1);
+    --lightbox-controls-hover-bg: rgba(255, 255, 255, 0.2);
+}
+
+/* کانتینر اصلی لایت‌باکس */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: var(--lightbox-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal) ease, visibility var(--transition-normal) ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 85vh;
+    text-align: center;
+}
+
+/* تصویر لایت‌باکس */
+.lightbox-image {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 4px solid white;
+    border-radius: var(--radius-md);
+    cursor: zoom-in;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all var(--transition-normal) ease;
+}
+
+.lightbox.active .lightbox-image {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* حالت زوم */
+.lightbox.zoomed .lightbox-image {
+    max-width: none;
+    max-height: none;
+    cursor: zoom-out;
+}
+
+/* دکمه‌های کنترلی */
+.lightbox-btn {
+    position: absolute;
+    background-color: var(--lightbox-controls-bg);
+    color: var(--lightbox-text);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+    z-index: 10;
+}
+
+.lightbox-btn:hover {
+    background-color: var(--lightbox-controls-hover-bg);
+    transform: scale(1.1);
+}
+
+.lightbox-close {
+    top: 20px;
+    left: 20px;
+}
+
+.lightbox-prev {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+[dir="rtl"] .lightbox-close {
+    right: 20px;
+    left: auto;
+}
+
+[dir="rtl"] .lightbox-prev {
+    left: 20px;
+    right: auto;
+}
+
+[dir="rtl"] .lightbox-next {
+    right: 20px;
+    left: auto;
+}
+
+/* توضیحات تصویر */
+.lightbox-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--lightbox-caption-bg);
+    color: var(--lightbox-text);
+    padding: var(--spacing-md);
+    text-align: right;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all var(--transition-normal) ease;
+    font-family: var(--font-primary);
+}
+
+.lightbox.active .lightbox-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lightbox-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-heading);
+}
+
+.lightbox-subtitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.lightbox-description {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    max-width: 800px;
+}
+
+/* نقاط نشانگر */
+.lightbox-dots {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.lightbox-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.lightbox-dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+.lightbox-dot:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* نوار پیشرفت */
+.lightbox-counter {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--lightbox-text);
+    font-size: var(--font-size-sm);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+}
+
+[dir="rtl"] .lightbox-counter {
+    left: 20px;
+    right: auto;
+}
+
+/* لودینگ */
+.lightbox-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.lightbox-loading.active {
+    display: block;
+}
+
+.lightbox-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: lightbox-rotate 1s linear infinite;
+}
+
+@keyframes lightbox-rotate {
+    to { transform: rotate(360deg); }
+}
+
+/* نوار ابزار */
+.lightbox-toolbar {
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+    display: flex;
+    gap: var(--spacing-xs);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-normal) ease;
+}
+
+.lightbox.active .lightbox-toolbar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lightbox-tool {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--lightbox-controls-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lightbox-text);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.lightbox-tool:hover {
+    background-color: var(--lightbox-controls-hover-bg);
+}
+
+[dir="rtl"] .lightbox-toolbar {
+    left: 20px;
+    right: auto;
+}
+
+/* پنل اطلاعات */
+.lightbox-info-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: var(--spacing-lg);
+    color: white;
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal) ease;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.lightbox-info-panel.active {
+    transform: translateX(0);
+}
+
+[dir="rtl"] .lightbox-info-panel {
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+    text-align: right;
+}
+
+[dir="rtl"] .lightbox-info-panel.active {
+    transform: translateX(0);
+}
+
+.lightbox-info-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-info-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.lightbox-info-label {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--spacing-xs);
+}
+
+.lightbox-info-value {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+}
+
+.lightbox-info-close {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.lightbox-info-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+[dir="rtl"] .lightbox-info-close {
+    right: auto;
+    left: var(--spacing-sm);
+}
+
+/* انیمیشن ورود و خروج */
+@keyframes lightboxFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes lightboxSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lightbox.animate-fade .lightbox-image {
+    animation: lightboxFadeIn 0.3s ease forwards;
+}
+
+.lightbox.animate-slide .lightbox-image {
+    animation: lightboxSlideUp 0.3s ease forwards;
+}
+
+/* ریسپانسیو */
+@media (max-width: 992px) {
+    .lightbox-container {
+        max-width: 95%;
+    }
+
+    .lightbox-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+
+    .lightbox-toolbar {
+        bottom: 80px;
+    }
+
+    .lightbox-info-panel {
+        width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lightbox-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .lightbox-prev {
+        right: 10px;
+    }
+
+    .lightbox-next {
+        left: 10px;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        left: 10px;
+    }
+
+    .lightbox-counter {
+        top: 10px;
+        right: 10px;
+    }
+
+    .lightbox-info-panel {
+        width: 100%;
+        height: 50%;
+        top: auto;
+        transform: translateY(100%);
+    }
+
+    .lightbox-info-panel.active {
+        transform: translateY(0);
+    }
+
+    [dir="rtl"] .lightbox-prev {
+        left: 10px;
+        right: auto;
+    }
+
+    [dir="rtl"] .lightbox-next {
+        right: 10px;
+        left: auto;
+    }
+
+    [dir="rtl"] .lightbox-close {
+        right: 10px;
+        left: auto;
+    }
+
+    [dir="rtl"] .lightbox-counter {
+        left: 10px;
+        right: auto;
+    }
+
+    [dir="rtl"] .lightbox-info-panel {
+        transform: translateY(100%);
+        right: 0;
+    }
+
+    [dir="rtl"] .lightbox-info-panel.active {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 576px) {
+    .lightbox-image {
+        border-width: 2px;
+    }
+
+    .lightbox-caption {
+        padding: var(--spacing-sm);
+    }
+
+    .lightbox-title {
+        font-size: var(--font-size-base);
+    }
+
+    .lightbox-subtitle {
+        font-size: var(--font-size-sm);
+    }
+
+    .lightbox-description {
+        font-size: var(--font-size-xs);
+    }
+
+    .lightbox-toolbar {
+        bottom: 70px;
+        right: 10px;
+    }
+
+    .lightbox-tool {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    [dir="rtl"] .lightbox-toolbar {
+        left: 10px;
+        right: auto;
+    }
+}
+
+/* استایل‌های مخصوص گالری هنری */
+.gallery-lightbox .lightbox-image {
+    border: 12px solid var(--gallery-accent-1);
+    border-radius: var(--radius-lg);
+}
+
+.gallery-lightbox .lightbox-caption {
+    background-color: var(--gallery-accent-1);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.gallery-lightbox .lightbox-btn {
+    background-color: rgba(166, 124, 82, 0.3);
+}
+
+.gallery-lightbox .lightbox-btn:hover {
+    background-color: rgba(166, 124, 82, 0.5);
+}
+
+.lightbox-ar-view {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--gallery-accent-4);
+    color: white;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.lightbox-ar-view:hover {
+    background-color: var(--gallery-accent-5);
+}
+
+[dir="rtl"] .lightbox-ar-view {
+    right: 20px;
+    left: auto;
+}

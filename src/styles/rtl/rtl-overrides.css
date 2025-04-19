@@ -1,0 +1,191 @@
+/* rtl-overrides.css - تنظیمات کلی RTL برای رونویسی استایل‌های پیش‌فرض */
+
+/* تنظیمات اصلی RTL */
+body {
+    direction: rtl;
+    text-align: right;
+}
+
+/* وارونه‌سازی آیکون‌های جهت‌دار */
+.icon-arrow-right,
+.icon-chevron-right,
+.icon-arrow-forward,
+.icon-next,
+.icon-caret-right {
+    transform: scaleX(-1);
+}
+
+.icon-arrow-left,
+.icon-chevron-left,
+.icon-arrow-back,
+.icon-prev,
+.icon-caret-left {
+    transform: scaleX(-1);
+}
+
+/* تنظیمات حاشیه و پدینگ */
+.ml-1, .ml-2, .ml-3, .ml-4, .ml-5, .ml-auto {
+    margin-right: var(--spacing-xs);
+    margin-left: 0 !important;
+}
+
+.mr-1, .mr-2, .mr-3, .mr-4, .mr-5, .mr-auto {
+    margin-left: var(--spacing-xs);
+    margin-right: 0 !important;
+}
+
+.pl-1, .pl-2, .pl-3, .pl-4, .pl-5 {
+    padding-right: var(--spacing-xs);
+    padding-left: 0 !important;
+}
+
+.pr-1, .pr-2, .pr-3, .pr-4, .pr-5 {
+    padding-left: var(--spacing-xs);
+    padding-right: 0 !important;
+}
+
+/* تنظیمات border */
+.border-right {
+    border-left: 1px solid var(--neutral-200);
+    border-right: none !important;
+}
+
+.border-left {
+    border-right: 1px solid var(--neutral-200);
+    border-left: none !important;
+}
+
+/* تنظیمات position */
+.left-0 {
+    right: 0;
+    left: auto !important;
+}
+
+.right-0 {
+    left: 0;
+    right: auto !important;
+}
+
+/* تنظیمات text-align */
+.text-left {
+    text-align: right !important;
+}
+
+.text-right {
+    text-align: left !important;
+}
+
+/* تنظیمات float */
+.float-left {
+    float: right !important;
+}
+
+.float-right {
+    float: left !important;
+}
+
+/* تنظیمات flex */
+.flex-row {
+    flex-direction: row-reverse !important;
+}
+
+/* تراز‌بندی فرم‌ها */
+.form-group label {
+    text-align: right;
+}
+
+/* تنظیمات گرید */
+.offset-1 { margin-right: 8.333333%; margin-left: 0 !important; }
+.offset-2 { margin-right: 16.666667%; margin-left: 0 !important; }
+.offset-3 { margin-right: 25%; margin-left: 0 !important; }
+.offset-4 { margin-right: 33.333333%; margin-left: 0 !important; }
+.offset-5 { margin-right: 41.666667%; margin-left: 0 !important; }
+.offset-6 { margin-right: 50%; margin-left: 0 !important; }
+.offset-7 { margin-right: 58.333333%; margin-left: 0 !important; }
+.offset-8 { margin-right: 66.666667%; margin-left: 0 !important; }
+.offset-9 { margin-right: 75%; margin-left: 0 !important; }
+.offset-10 { margin-right: 83.333333%; margin-left: 0 !important; }
+.offset-11 { margin-right: 91.666667%; margin-left: 0 !important; }
+
+/* تنظیمات transform */
+.rotate-90 { transform: rotate(-90deg) !important; }
+.rotate-180 { transform: rotate(-180deg) !important; }
+.rotate-270 { transform: rotate(-270deg) !important; }
+
+/* تنظیمات استایل‌های فونت و متن */
+.text-indent {
+    text-indent: 1.5em;
+}
+
+/* تنظیمات CSS ویژه RTL */
+.rtl-flip {
+    transform: scaleX(-1);
+}
+
+.rtl-swap {
+    direction: ltr;
+    text-align: left;
+}
+
+.rtl-preserve {
+    direction: ltr;
+    unicode-bidi: embed;
+}
+
+/* تنظیمات برای عناصر بصری */
+.shadow-right {
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-left {
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.rounded-right {
+    border-radius: 0 var(--radius-md) var(--radius-md) 0 !important;
+}
+
+.rounded-left {
+    border-radius: var(--radius-md) 0 0 var(--radius-md) !important;
+}
+
+/* تنظیمات انیمیشن‌ها */
+.slide-right-enter,
+.slide-right-leave-to {
+    transform: translateX(-100%) !important;
+}
+
+.slide-left-enter,
+.slide-left-leave-to {
+    transform: translateX(100%) !important;
+}
+
+/* فیکس‌های مرورگر */
+input[type="tel"],
+input[type="url"],
+input[type="email"],
+input[type="number"] {
+    direction: rtl;
+}
+
+/* تنظیمات اضافی برای فریم‌ورک‌های شخص ثالث */
+.slick-next {
+    right: auto;
+    left: var(--spacing-md);
+    transform: scaleX(-1);
+}
+
+.slick-prev {
+    left: auto;
+    right: var(--spacing-md);
+    transform: scaleX(-1);
+}
+
+/* تنظیم برای اسکرول بار */
+.custom-scrollbar {
+    direction: ltr;
+}
+
+.custom-scrollbar > * {
+    direction: rtl;
+}

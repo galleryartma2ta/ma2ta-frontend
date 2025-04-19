@@ -1,0 +1,685 @@
+/* product-list.css - استایل صفحه لیست محصولات */
+
+/* طرح‌بندی کلی صفحه محصولات */
+.products-page {
+    padding: var(--spacing-xl) 0;
+}
+
+.products-container {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+/* فیلتر ساید بار */
+.products-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.products-main {
+    flex: 1;
+}
+
+/* هدر صفحه */
+.products-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.products-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+}
+
+.products-count {
+    color: var(--neutral-600);
+    font-size: var(--font-size-sm);
+}
+
+/* فیلترهای نمایش */
+.products-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.products-sort {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.products-sort-label {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+}
+
+.products-sort-select {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    background-color: white;
+    font-size: var(--font-size-sm);
+    color: var(--neutral-800);
+}
+
+.products-view-options {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.products-view-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    color: var(--neutral-600);
+    background-color: transparent;
+    border: 1px solid var(--neutral-300);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.products-view-btn:hover {
+    background-color: var(--neutral-100);
+}
+
+.products-view-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* لیست محصولات - نمای گرید */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* لیست محصولات - نمای لیست */
+.products-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.product-list-item {
+    display: flex;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background-color: white;
+    transition: all var(--transition-normal) ease;
+}
+
+.product-list-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.product-list-img {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.product-list-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-list-content {
+    flex: 1;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-list-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-xs);
+}
+
+.product-list-artist {
+    font-size: var(--font-size-sm);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.product-list-category {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-sm);
+}
+
+.product-list-desc {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-sm);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-list-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--neutral-200);
+}
+
+.product-list-price {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+}
+
+.product-list-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* فیلترهای سایدبار */
+.filter-widget {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.filter-widget:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.filter-widget-title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-800);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-widget-title .icon {
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: transform var(--transition-fast) ease;
+}
+
+.filter-widget-title.collapsed .icon {
+    transform: rotate(-180deg);
+}
+
+.filter-widget-content {
+    transition: all var(--transition-normal) ease;
+}
+
+.filter-widget-content.collapsed {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+/* فیلتر دسته‌بندی */
+.category-filter-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.category-filter-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.category-filter-item label {
+    flex: 1;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+}
+
+.category-filter-item:hover label {
+    color: var(--primary-color);
+}
+
+.category-filter-count {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-500);
+    background-color: var(--neutral-100);
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+}
+
+/* فیلتر قیمت */
+.price-filter {
+    padding: 0 var(--spacing-xs);
+}
+
+.price-range-slider {
+    margin-bottom: var(--spacing-md);
+}
+
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.price-input {
+    flex: 1;
+}
+
+.price-input-field {
+    width: 100%;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+}
+
+.price-divider {
+    color: var(--neutral-500);
+}
+
+/* فیلتر برچسب */
+.tag-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.tag-filter-item {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.tag-filter-item:hover {
+    background-color: var(--neutral-200);
+}
+
+.tag-filter-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* فیلتر رنگ */
+.color-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.color-filter-item {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    transition: all var(--transition-fast) ease;
+}
+
+.color-filter-item:hover {
+    transform: scale(1.1);
+}
+
+.color-filter-item.active {
+    border-color: var(--neutral-300);
+}
+
+.color-filter-item.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* پاجینیشن */
+.products-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+    gap: var(--spacing-xs);
+}
+
+.pagination-item {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.pagination-item:hover {
+    background-color: var(--neutral-200);
+}
+
+.pagination-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.pagination-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* فیلتر موبایل */
+.mobile-filter-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    cursor: pointer;
+}
+
+.mobile-filter-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-fixed) - 1;
+}
+
+/* بارگذاری محصولات */
+.products-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-xl) 0;
+    gap: var(--spacing-md);
+}
+
+.products-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(58, 124, 178, 0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.products-loading-text {
+    font-size: var(--font-size-base);
+    color: var(--neutral-600);
+}
+
+/* بدون محصول */
+.products-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-xl) 0;
+    gap: var(--spacing-md);
+    text-align: center;
+}
+
+.products-empty-icon {
+    font-size: 3rem;
+    color: var(--neutral-400);
+}
+
+.products-empty-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-700);
+}
+
+.products-empty-message {
+    font-size: var(--font-size-base);
+    color: var(--neutral-600);
+    max-width: 500px;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ریسپانسیو */
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .product-list-img {
+        width: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-container {
+        flex-direction: column;
+    }
+
+    .products-sidebar {
+        width: 100%;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .mobile-filter-toggle {
+        display: flex;
+    }
+
+    .products-sidebar {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 280px;
+        background-color: white;
+        z-index: var(--z-fixed);
+        padding: var(--spacing-md);
+        overflow-y: auto;
+        box-shadow: var(--shadow-xl);
+    }
+
+    .products-sidebar.active {
+        display: block;
+    }
+
+    .mobile-filter-overlay.active {
+        display: block;
+    }
+
+    .product-list-item {
+        flex-direction: column;
+    }
+
+    .product-list-img {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .products-filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .products-sort {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .products-view-options {
+        width: 100%;
+        justify-content: center;
+        margin-top: var(--spacing-xs);
+    }
+}
+
+/* دارک مود */
+[data-theme="dark"] .products-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .products-count {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .products-header {
+    border-bottom-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .products-sort-select {
+    background-color: var(--neutral-800);
+    border-color: var(--neutral-700);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .products-sort-label {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .products-view-btn {
+    color: var(--neutral-400);
+    border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .products-view-btn:hover {
+    background-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .product-list-item {
+    background-color: var(--neutral-800);
+    border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .product-list-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .product-list-desc {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .product-list-category {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .product-list-footer {
+    border-top-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .product-list-price {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .filter-widget {
+    border-bottom-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .filter-widget-title {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .category-filter-item label {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .category-filter-count {
+    background-color: var(--neutral-700);
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .price-input-field {
+    background-color: var(--neutral-700);
+    border-color: var(--neutral-600);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .tag-filter-item {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .tag-filter-item:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .pagination-item {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .pagination-item:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .products-empty-icon,
+[data-theme="dark"] .products-empty-title,
+[data-theme="dark"] .products-empty-message {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .products-sidebar {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .products-loading-text {
+    color: var(--neutral-400);
+}

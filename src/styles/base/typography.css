@@ -1,0 +1,402 @@
+/* typography.css - استایل‌های مربوط به تایپوگرافی و متن */
+
+/* فونت‌های پایه */
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    color: var(--neutral-800);
+    font-weight: var(--font-weight-regular);
+}
+
+/* سربرگ‌ها */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--neutral-900);
+}
+
+h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+}
+
+h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+}
+
+h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+h4 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+h5 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+}
+
+h6 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+}
+
+/* پاراگراف‌ها */
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+p.lead {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-light);
+    color: var(--neutral-700);
+    line-height: 1.6;
+}
+
+p.small {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+}
+
+/* لینک‌ها */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast) ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+a.underline {
+    text-decoration: underline;
+}
+
+a.muted {
+    color: var(--neutral-600);
+}
+
+a.muted:hover {
+    color: var(--neutral-800);
+}
+
+/* لیست‌ها */
+ul, ol {
+    margin: 0 var(--spacing-lg) var(--spacing-md) 0;
+}
+
+ul li, ol li {
+    margin-bottom: var(--spacing-xs);
+}
+
+ul.no-bullets,
+ol.no-bullets {
+    list-style: none;
+    margin-right: 0;
+}
+
+ul.inline,
+ol.inline {
+    display: flex;
+    list-style: none;
+    margin-right: 0;
+    gap: var(--spacing-md);
+}
+
+/* بلوک نقل قول */
+blockquote {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-right: 4px solid var(--primary-color);
+    background-color: var(--neutral-50);
+    margin: var(--spacing-lg) 0;
+    font-style: italic;
+    color: var(--neutral-700);
+}
+
+blockquote cite {
+    display: block;
+    margin-top: var(--spacing-sm);
+    font-weight: var(--font-weight-medium);
+    font-style: normal;
+    color: var(--neutral-600);
+}
+
+/* متن برجسته */
+.highlight {
+    background-color: rgba(230, 177, 126, 0.2);
+    padding: 2px 5px;
+    border-radius: var(--radius-sm);
+}
+
+/* کدها */
+code {
+    font-family: monospace;
+    background-color: var(--neutral-100);
+    padding: 2px 5px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+    color: var(--neutral-800);
+}
+
+pre {
+    background-color: var(--neutral-100);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin-bottom: var(--spacing-md);
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* تراز متن */
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* وزن فونت */
+.font-light {
+    font-weight: var(--font-weight-light);
+}
+
+.font-regular {
+    font-weight: var(--font-weight-regular);
+}
+
+.font-medium {
+    font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+    font-weight: var(--font-weight-bold);
+}
+
+/* اندازه فونت */
+.text-xs {
+    font-size: var(--font-size-xs);
+}
+
+.text-sm {
+    font-size: var(--font-size-sm);
+}
+
+.text-base {
+    font-size: var(--font-size-base);
+}
+
+.text-lg {
+    font-size: var(--font-size-lg);
+}
+
+.text-xl {
+    font-size: var(--font-size-xl);
+}
+
+.text-2xl {
+    font-size: var(--font-size-2xl);
+}
+
+.text-3xl {
+    font-size: var(--font-size-3xl);
+}
+
+.text-4xl {
+    font-size: var(--font-size-4xl);
+}
+
+/* رنگ متن */
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+.text-success {
+    color: var(--success);
+}
+
+.text-warning {
+    color: var(--warning);
+}
+
+.text-error {
+    color: var(--error);
+}
+
+.text-info {
+    color: var(--info);
+}
+
+.text-light {
+    color: var(--neutral-50);
+}
+
+.text-dark {
+    color: var(--neutral-900);
+}
+
+.text-muted {
+    color: var(--neutral-500);
+}
+
+/* فاصله خطوط */
+.leading-tight {
+    line-height: 1.2;
+}
+
+.leading-normal {
+    line-height: 1.5;
+}
+
+.leading-loose {
+    line-height: 1.8;
+}
+
+/* تبدیل متن */
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* تورفتگی متن */
+.indent {
+    text-indent: 1.5em;
+}
+
+/* سایه متن */
+.text-shadow {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* توضیحات و عناوین */
+.caption {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-500);
+    margin-top: var(--spacing-xs);
+}
+
+.subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-md);
+}
+
+/* خط عنوان */
+.heading-line {
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.heading-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.heading-line.center {
+    text-align: center;
+}
+
+.heading-line.center::after {
+    right: 50%;
+    transform: translateX(50%);
+}
+
+/* کوتاه کردن متن */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.line-clamp-1,
+.line-clamp-2,
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-1 {
+    -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+    -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+    -webkit-line-clamp: 3;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-2xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-xl);
+    }
+
+    h4 {
+        font-size: var(--font-size-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-xl);
+    }
+}

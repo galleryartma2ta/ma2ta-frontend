@@ -1,0 +1,824 @@
+/* exhibition-list.css - استایل صفحه لیست نمایشگاه‌ها */
+
+/* طرح‌بندی کلی صفحه نمایشگاه‌ها */
+.exhibitions-page {
+    padding: var(--spacing-xl) 0;
+}
+
+.exhibitions-container {
+    width: 100%;
+}
+
+/* هدر صفحه */
+.exhibitions-header {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.exhibitions-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exhibitions-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--neutral-600);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* نمایشگاه ویژه */
+.exhibition-featured {
+    position: relative;
+    height: 500px;
+    margin-bottom: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.exhibition-featured-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exhibition-featured-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--spacing-xl);
+    color: white;
+}
+
+.exhibition-featured-dates {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.exhibition-featured-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+}
+
+.exhibition-featured-desc {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+.exhibition-featured-location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+.exhibition-featured-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background-color: white;
+    color: var(--neutral-900);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-medium);
+    transition: all var(--transition-fast) ease;
+}
+
+.exhibition-featured-cta:hover {
+    background-color: var(--neutral-100);
+    transform: translateY(-2px);
+}
+
+/* فیلترها */
+.exhibitions-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.exhibitions-search {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+}
+
+.exhibitions-search-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    padding-right: var(--spacing-xl);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-base);
+}
+
+.exhibitions-search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(58, 124, 178, 0.1);
+}
+
+.exhibitions-search-icon {
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-md);
+    transform: translateY(-50%);
+    color: var(--neutral-500);
+    pointer-events: none;
+}
+
+.exhibitions-sort {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.exhibitions-sort-label {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+}
+
+.exhibitions-sort-select {
+    padding: var(--spacing-xs) var(--spacing-lg);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    background-color: white;
+    font-size: var(--font-size-sm);
+}
+
+/* فیلتر وضعیت */
+.exhibitions-status-filter {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.exhibition-status {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-full);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-normal) ease;
+    cursor: pointer;
+}
+
+.exhibition-status:hover {
+    background-color: var(--neutral-200);
+    transform: translateY(-2px);
+}
+
+.exhibition-status.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* گرید نمایشگاه‌ها */
+.exhibitions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* کارت نمایشگاه */
+.exhibition-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal) ease;
+}
+
+.exhibition-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.exhibition-card-img {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.exhibition-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.exhibition-card:hover .exhibition-card-img img {
+    transform: scale(1.1);
+}
+
+.exhibition-card-date {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+.exhibition-card-status {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+.exhibition-card-status-active {
+    background-color: var(--success);
+    color: white;
+}
+
+.exhibition-card-status-upcoming {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.exhibition-card-status-past {
+    background-color: var(--neutral-500);
+    color: white;
+}
+
+.exhibition-card-content {
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.exhibition-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-xs);
+    color: var(--neutral-900);
+}
+
+.exhibition-card-location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exhibition-card-desc {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+}
+
+.exhibition-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--neutral-200);
+}
+
+.exhibition-card-artists {
+    display: flex;
+}
+
+.exhibition-card-artist {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    overflow: hidden;
+    margin-left: -10px;
+}
+
+.exhibition-card-artist:first-child {
+    margin-left: 0;
+}
+
+.exhibition-card-artist img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.exhibition-card-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--neutral-200);
+    color: var(--neutral-700);
+    font-size: var(--font-size-xs);
+    margin-left: -10px;
+}
+
+.exhibition-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--primary-color);
+}
+
+.exhibition-card-link:hover {
+    color: var(--primary-dark);
+}
+
+/* نمایشگاه‌های این ماه */
+.monthly-exhibitions {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.monthly-exhibitions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.monthly-exhibitions-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+}
+
+.monthly-exhibitions-link {
+    font-size: var(--font-size-sm);
+    color: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.monthly-exhibitions-link:hover {
+    color: var(--primary-dark);
+}
+
+/* تقویم نمایشگاه */
+.exhibition-calendar {
+    margin-bottom: var(--spacing-2xl);
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.exhibition-calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.exhibition-calendar-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+}
+
+.exhibition-calendar-nav {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.exhibition-calendar-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.exhibition-calendar-btn:hover {
+    background-color: var(--neutral-200);
+}
+
+.exhibition-calendar-month {
+    font-weight: var(--font-weight-medium);
+    color: var(--primary-color);
+}
+
+.exhibition-calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+}
+
+.exhibition-calendar-weekday {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    padding: var(--spacing-xs);
+}
+
+.exhibition-calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--spacing-xs);
+}
+
+.exhibition-calendar-day {
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+    position: relative;
+}
+
+.exhibition-calendar-day:hover {
+    background-color: var(--neutral-100);
+}
+
+.exhibition-calendar-day.today {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    font-weight: var(--font-weight-semibold);
+}
+
+.exhibition-calendar-day.has-event::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+.exhibition-calendar-day.has-event.multiple::after {
+    width: 12px;
+    height: 4px;
+    border-radius: var(--radius-full);
+}
+
+.exhibition-calendar-day.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.exhibition-calendar-day.other-month {
+    color: var(--neutral-400);
+}
+
+/* پاجینیشن */
+.exhibitions-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+    gap: var(--spacing-xs);
+}
+
+.pagination-item {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.pagination-item:hover {
+    background-color: var(--neutral-200);
+}
+
+.pagination-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.pagination-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* بارگذاری نمایشگاه‌ها */
+.exhibitions-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-xl) 0;
+    gap: var(--spacing-md);
+}
+
+.exhibitions-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(58, 124, 178, 0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.exhibitions-loading-text {
+    font-size: var(--font-size-base);
+    color: var(--neutral-600);
+}
+
+/* هیچ نمایشگاهی یافت نشد */
+.exhibitions-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-xl) 0;
+    gap: var(--spacing-md);
+    text-align: center;
+}
+
+.exhibitions-empty-icon {
+    font-size: 3rem;
+    color: var(--neutral-400);
+}
+
+.exhibitions-empty-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-700);
+}
+
+.exhibitions-empty-message {
+    font-size: var(--font-size-base);
+    color: var(--neutral-600);
+    max-width: 500px;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ریسپانسیو */
+@media (max-width: 992px) {
+    .exhibition-featured {
+        height: 400px;
+    }
+
+    .exhibition-featured-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .exhibition-featured-desc {
+        font-size: var(--font-size-base);
+    }
+
+    .exhibitions-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .exhibition-featured {
+        height: 350px;
+    }
+
+    .exhibitions-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .exhibitions-search {
+        max-width: 100%;
+    }
+
+    .exhibitions-sort {
+        justify-content: space-between;
+    }
+
+    .exhibitions-status-filter {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: var(--spacing-sm);
+        margin-right: calc(-1 * var(--spacing-md));
+        margin-left: calc(-1 * var(--spacing-md));
+        padding-right: var(--spacing-md);
+        padding-left: var(--spacing-md);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .exhibition-status {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .monthly-exhibitions-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 576px) {
+    .exhibition-featured {
+        height: 300px;
+    }
+
+    .exhibition-featured-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .exhibition-featured-desc {
+        font-size: var(--font-size-sm);
+    }
+
+    .exhibition-featured-location {
+        font-size: var(--font-size-sm);
+    }
+
+    .exhibitions-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .exhibitions-subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .exhibitions-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .exhibition-calendar-weekdays,
+    .exhibition-calendar-days {
+        gap: 2px;
+    }
+
+    .exhibition-calendar-day {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* دارک مود */
+[data-theme="dark"] .exhibitions-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .exhibitions-subtitle {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .exhibitions-search-input {
+    background-color: var(--neutral-800);
+    border-color: var(--neutral-700);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .exhibitions-sort-label {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibitions-sort-select {
+    background-color: var(--neutral-800);
+    border-color: var(--neutral-700);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .exhibition-status {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-status:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .exhibition-card {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .exhibition-card-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .exhibition-card-location {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .exhibition-card-desc {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-card-footer {
+    border-top-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .exhibition-card-artist {
+    border-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .exhibition-card-more {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .monthly-exhibitions-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .exhibition-calendar {
+    background-color: var(--neutral-800);
+}
+
+[data-theme="dark"] .exhibition-calendar-title {
+    color: var(--neutral-100);
+}
+
+[data-theme="dark"] .exhibition-calendar-btn {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .exhibition-calendar-btn:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .exhibition-calendar-weekday {
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .exhibition-calendar-day:hover {
+    background-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .exhibition-calendar-day.today {
+    background-color: rgba(79, 147, 200, 0.2);
+    color: var(--primary-light);
+}
+
+[data-theme="dark"] .exhibition-calendar-day.other-month {
+    color: var(--neutral-600);
+}
+
+[data-theme="dark"] .pagination-item {
+    background-color: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .pagination-item:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .exhibitions-loading-text,
+[data-theme="dark"] .exhibitions-empty-icon,
+[data-theme="dark"] .exhibitions-empty-title,
+[data-theme="dark"] .exhibitions-empty-message {
+    color: var(--neutral-400);
+}

@@ -1,0 +1,10 @@
+/* در فایل styles/index.css */
+@import './vendors/normalize.css';
+@import './vendors/react-select.css';
+@import './vendors/slick-carousel.css';
+@import './vendors/lightbox.css';
+@import './vendors/feather-icons.css';
+@import './vendors/animate.css';
+@import './vendors/aos.css';
+@import './vendors/dropzone.css';
+@import './vendors/datepicker.css';

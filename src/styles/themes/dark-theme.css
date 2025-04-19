@@ -1,0 +1,82 @@
+/* dark-theme.css - تم تاریک پلتفرم Ma2tA */
+
+[data-theme="dark"] {
+    /* رنگ‌های اصلی */
+    --primary-color: #4f93c8;
+    --primary-dark: #3a7cb2;
+    --primary-light: #6aa7d8;
+
+    /* رنگ‌های ثانویه */
+    --secondary-color: #f0c59a;
+    --secondary-dark: #e6b17e;
+    --secondary-light: #f8d7b5;
+
+    /* رنگ‌های خنثی - معکوس شده برای دارک مود */
+    --neutral-50: #171717;
+    --neutral-100: #262626;
+    --neutral-200: #404040;
+    --neutral-300: #525252;
+    --neutral-400: #737373;
+    --neutral-500: #a3a3a3;
+    --neutral-600: #d4d4d4;
+    --neutral-700: #e5e5e5;
+    --neutral-800: #f5f5f5;
+    --neutral-900: #fafafa;
+
+    /* پس‌زمینه و متن */
+    --background-color: var(--neutral-900);
+    --text-color: var(--neutral-200);
+    --heading-color: var(--neutral-50);
+    --link-color: var(--primary-light);
+    --link-hover-color: var(--primary-color);
+
+    /* کارت‌ها و باکس‌ها */
+    --card-background: var(--neutral-800);
+    --card-border: var(--neutral-700);
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+    /* هدر و فوتر */
+    --header-background: var(--neutral-800);
+    --footer-background: var(--neutral-900);
+    --footer-text: var(--neutral-400);
+
+    /* دکمه‌ها */
+    --button-primary-bg: var(--primary-color);
+    --button-primary-text: var(--neutral-900);
+    --button-secondary-bg: var(--secondary-color);
+    --button-secondary-text: var(--neutral-900);
+}
+
+/* استایل‌های خاص دارک مود */
+[data-theme="dark"] .card,
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .artist-card,
+[data-theme="dark"] .exhibition-card {
+    background-color: var(--neutral-800);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .card-header,
+[data-theme="dark"] .card-footer {
+    background-color: var(--neutral-800);
+    border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .btn-light {
+    background-color: var(--neutral-700);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .btn-light:hover {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .form-control {
+    background-color: var(--neutral-700);
+    border-color: var(--neutral-600);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: var(--neutral-500);
+}

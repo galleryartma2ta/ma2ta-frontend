@@ -1,0 +1,563 @@
+/* mixins.css - میکسین‌های CSS قابل استفاده در کل پروژه
+   توجه: این میکسین‌ها باید در محیط پروسسور CSS (مثل SCSS یا PostCSS) استفاده شوند
+   و در نهایت به CSS استاندارد تبدیل شوند */
+
+/***************************
+ * میکسین‌های پرکاربرد
+ **************************/
+
+/* میکسین جهت flexbox */
+@mixin flex($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+/* میکسین برای طراحی واکنش‌گرا */
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "xs" {
+    @media (max-width: 575px) { @content; }
+  }
+  @else if $breakpoint == "sm" {
+    @media (min-width: 576px) and (max-width: 767px) { @content; }
+  }
+  @else if $breakpoint == "md" {
+    @media (min-width: 768px) and (max-width: 991px) { @content; }
+  }
+  @else if $breakpoint == "lg" {
+    @media (min-width: 992px) and (max-width: 1199px) { @content; }
+  }
+  @else if $breakpoint == "xl" {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else if $breakpoint == "mobile" {
+    @media (max-width: 767px) { @content; }
+  }
+  @else if $breakpoint == "tablet" {
+    @media (min-width: 768px) and (max-width: 991px) { @content; }
+  }
+  @else if $breakpoint == "desktop" {
+    @media (min-width: 992px) { @content; }
+  }
+}
+
+/* میکسین برای پوزیشن absolute */
+@mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+/* میکسین برای ایجاد سایه */
+@mixin box-shadow($x: 0, $y: 4px, $blur: 6px, $spread: 0, $color: rgba(0, 0, 0, 0.1)) {
+  box-shadow: $x $y $blur $spread $color;
+}
+
+/* میکسین برای ترانزیشن */
+@mixin transition($property: all, $duration: 0.3s, $timing: ease, $delay: 0s) {
+  transition: $property $duration $timing $delay;
+}
+
+/* میکسین برای گرادینت خطی */
+@mixin linear-gradient($direction: to bottom, $start-color: #fff, $end-color: #000) {
+  background: linear-gradient($direction, $start-color, $end-color);
+}
+
+/* میکسین برای قطع متن و افزودن ... */
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* میکسین برای سایز فونت responsive */
+@mixin responsive-font($min-size: 14px, $max-size: 18px, $min-width: 320px, $max-width: 1200px) {
+  font-size: $min-size;
+
+  @media (min-width: $min-width) {
+    font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)}));
+  }
+
+  @media (min-width: $max-width) {
+    font-size: $max-size;
+  }
+}
+
+/* میکسین برای تنظیم عرض و ارتفاع */
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/***************************
+ * میکسین‌های خاص پروژه
+ **************************/
+
+/* میکسین برای قاب هنری */
+@mixin art-frame($border-width: 8px, $padding: 12px, $border-color: var(--gallery-accent-1)) {
+  border: $border-width solid $border-color;
+  padding: $padding;
+  background-color: white;
+  box-shadow: var(--gallery-shadow-artwork);
+}
+
+/* میکسین برای کارت محصول */
+@mixin product-card($hover-transform: true) {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+
+  @if $hover-transform {
+    transition: transform var(--transition-normal) ease, box-shadow var(--transition-normal) ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+  }
+}
+
+/* میکسین برای دکمه‌های اصلی */
+@mixin button-style($bg-color, $text-color, $hover-bg-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast) ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover, &:focus {
+    background-color: $hover-bg-color;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* میکسین برای ایجاد بج (نشان) */
+@mixin badge($bg-color, $text-color) {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+/* میکسین برای فرم‌های ورودی */
+@mixin input-style($border-color: var(--neutral-300), $focus-color: var(--primary-color)) {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid $border-color;
+  border-radius: var(--radius-md);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+
+  &:focus {
+    outline: none;
+    border-color: $focus-color;
+    box-shadow: 0 0 0 3px rgba($focus-color, 0.1);
+  }
+}
+
+/* میکسین برای افکت hover تصویر */
+@mixin image-hover-effect($scale: 1.1, $duration: 0.5s) {
+  overflow: hidden;
+
+  img {
+    transition: transform $duration ease;
+  }
+
+  &:hover img {
+    transform: scale($scale);
+  }
+}
+
+/* میکسین برای ایجاد overlay روی تصویر */
+@mixin image-overlay($bg-color: rgba(0, 0, 0, 0.5), $opacity: 0, $hover-opacity: 1) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $bg-color;
+    opacity: $opacity;
+    transition: opacity var(--transition-normal) ease;
+  }
+
+  &:hover::after {
+    opacity: $hover-opacity;
+  }
+}
+
+/* میکسین برای چیدمان گرید responsive */
+@mixin responsive-grid($min-width: 250px, $gap: var(--spacing-md)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+/* میکسین برای حالت drak mode */
+@mixin dark-mode {
+  [data-theme="dark"] & {
+    @content;
+  }
+}
+
+/* میکسین برای RTL */
+@mixin rtl {
+  [dir="rtl"] & {
+    @content;
+  }
+}
+
+/* میکسین برای ایجاد دکمه با آیکون */
+@mixin button-with-icon($icon-position: right) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+
+  @if $icon-position == left {
+    flex-direction: row-reverse;
+  }
+}
+
+/* میکسین برای افکت ripple دکمه */
+@mixin ripple-effect {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    top: 50%;
+    left: 50%;
+    animation: ripple 1s;
+    opacity: 0;
+  }
+
+  &:active::after {
+    display: block;
+  }
+}
+
+/* میکسین برای استایل لودر */
+@mixin loader($size: 30px, $border-width: 3px, $color: var(--primary-color)) {
+  width: $size;
+  height: $size;
+  border: $border-width solid rgba($color, 0.2);
+  border-top-color: $color;
+  border-radius: 50%;
+  animation: spinner 0.7s linear infinite;
+}
+
+/* میکسین برای استایل اسکرول‌بار */
+@mixin custom-scrollbar($width: 6px, $track-color: var(--neutral-100), $thumb-color: var(--neutral-400)) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: 10px;
+    border: 2px solid $track-color;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: $thumb-color $track-color;
+}
+
+/* میکسین برای استایل فوکوس با کیبورد */
+@mixin focus-outline($color: var(--primary-color), $width: 2px, $offset: 2px) {
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: $offset;
+  }
+}
+
+/* میکسین برای استایل دکمه غیرفعال */
+@mixin disabled-state($opacity: 0.6) {
+  opacity: $opacity;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* میکسین برای grid با ستون‌های مساوی */
+@mixin grid-columns($cols: 3, $gap: var(--spacing-md)) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+}
+
+/* میکسین برای aspect ratio */
+@mixin aspect-ratio($width: 16, $height: 9) {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* میکسین برای ایجاد فضای منفی در متن */
+@mixin text-stroke($width: 1px, $color: black) {
+  -webkit-text-stroke-width: $width;
+  -webkit-text-stroke-color: $color;
+}
+
+/* میکسین برای حالت چند زبانه */
+@mixin rtl-property($property, $ltr-value, $rtl-value) {
+  [dir="ltr"] & {
+    #{$property}: $ltr-value;
+  }
+
+  [dir="rtl"] & {
+    #{$property}: $rtl-value;
+  }
+}
+
+/* میکسین برای ایجاد مثلث (arrow) */
+@mixin arrow($direction: down, $size: 10px, $color: black) {
+  width: 0;
+  height: 0;
+
+  @if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  }
+}
+
+/* میکسین برای استایل کارت‌های هنری */
+@mixin art-card($border-color: var(--gallery-accent-1)) {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--gallery-shadow-card);
+  border-top: 3px solid $border-color;
+  transition: transform var(--transition-normal) ease, box-shadow var(--transition-normal) ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* میکسین برای استایل دکمه‌های نمایشگاه هنری */
+@mixin gallery-button($bg-color: var(--gallery-accent-1), $text-color: white) {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.03em;
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast) ease;
+  border: none;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background-color: darken($bg-color, 10%);
+    box-shadow: 0 0 0 3px rgba($bg-color, 0.2);
+  }
+}
+
+/* میکسین برای ایجاد فرم استایل شده */
+@mixin styled-form() {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  label {
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-xs);
+    color: var(--neutral-700);
+  }
+
+  input, textarea, select {
+    @include input-style();
+  }
+
+  button[type="submit"] {
+    @include button-style(var(--primary-color), white, var(--primary-dark));
+    align-self: flex-start;
+    margin-top: var(--spacing-sm);
+  }
+}
+
+/* میکسین برای ایجاد container مرکزی */
+@mixin centered-container($max-width: 1200px) {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+/* میکسین برای ایجاد قاب عکس هنری */
+@mixin artistic-frame($frame-color: var(--gallery-accent-1), $mat-color: white, $frame-width: 10px, $mat-width: 15px) {
+  position: relative;
+  border: $frame-width solid $frame-color;
+  box-shadow: var(--gallery-shadow-artwork);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: $mat-width solid $mat-color;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* میکسین برای ایجاد Badge آیتم جدید */
+@mixin new-badge($color: var(--primary-color), $position: top-right) {
+  position: relative;
+
+  &::after {
+    content: 'جدید';
+    position: absolute;
+    background-color: $color;
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    padding: 0.25em 0.6em;
+    border-radius: var(--radius-full);
+    z-index: 1;
+
+    @if $position == top-right {
+      top: var(--spacing-sm);
+      right: var(--spacing-sm);
+    } @else if $position == top-left {
+      top: var(--spacing-sm);
+      left: var(--spacing-sm);
+    } @else if $position == bottom-right {
+      bottom: var(--spacing-sm);
+      right: var(--spacing-sm);
+    } @else if $position == bottom-left {
+      bottom: var(--spacing-sm);
+      left: var(--spacing-sm);
+    }
+  }
+}
+
+/* میکسین برای ایجاد پس‌زمینه با الگو */
+@mixin patterned-background($bg-color: var(--neutral-50), $pattern-color: var(--neutral-200), $pattern-size: 20px) {
+  background-color: $bg-color;
+  background-image: radial-gradient($pattern-color 1px, transparent 1px);
+  background-size: $pattern-size $pattern-size;
+}
+
+/* توابع کمکی */
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+/* انیمیشن‌های پرکاربرد */
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,533 @@
+/* animate.css v4.1.1 (نسخه سبک و سفارشی شده برای Ma2tA) */
+/* با تمرکز روی انیمیشن‌های کاربردی برای گالری هنری */
+
+:root {
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+    --animate-repeat: 1;
+}
+
+.animate__animated {
+    animation-duration: var(--animate-duration);
+    animation-fill-mode: both;
+}
+
+/* تنظیمات انیمیشن */
+.animate__delay-1s {
+    animation-delay: var(--animate-delay);
+}
+
+.animate__delay-2s {
+    animation-delay: calc(var(--animate-delay) * 2);
+}
+
+.animate__delay-3s {
+    animation-delay: calc(var(--animate-delay) * 3);
+}
+
+.animate__delay-4s {
+    animation-delay: calc(var(--animate-delay) * 4);
+}
+
+.animate__delay-5s {
+    animation-delay: calc(var(--animate-delay) * 5);
+}
+
+.animate__fast {
+    animation-duration: calc(var(--animate-duration) * 0.8);
+}
+
+.animate__faster {
+    animation-duration: calc(var(--animate-duration) * 0.5);
+}
+
+.animate__slow {
+    animation-duration: calc(var(--animate-duration) * 2);
+}
+
+.animate__slower {
+    animation-duration: calc(var(--animate-duration) * 3);
+}
+
+@media print, (prefers-reduced-motion: reduce) {
+    .animate__animated {
+        animation-duration: 1ms !important;
+        transition-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .animate__animated[class*='Out'] {
+        opacity: 0;
+    }
+}
+
+/* انیمیشن‌های اصلی */
+
+/* Fade */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate__fadeIn {
+    animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.animate__fadeOut {
+    animation-name: fadeOut;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInDown {
+    animation-name: fadeInDown;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInUp {
+    animation-name: fadeInUp;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(-20px, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInRight {
+    animation-name: fadeInRight;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(20px, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInLeft {
+    animation-name: fadeInLeft;
+}
+
+/* مخصوص RTL */
+[dir="rtl"] .animate__fadeInRight {
+    animation-name: fadeInLeft;
+}
+
+[dir="rtl"] .animate__fadeInLeft {
+    animation-name: fadeInRight;
+}
+
+/* Zoom */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.animate__zoomIn {
+    animation-name: zoomIn;
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.animate__zoomOut {
+    animation-name: zoomOut;
+}
+
+/* Slide */
+@keyframes slideInDown {
+    from {
+        transform: translate3d(0, -100%, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__slideInDown {
+    animation-name: slideInDown;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__slideInUp {
+    animation-name: slideInUp;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__slideInRight {
+    animation-name: slideInRight;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__slideInLeft {
+    animation-name: slideInLeft;
+}
+
+/* مخصوص RTL */
+[dir="rtl"] .animate__slideInRight {
+    animation-name: slideInLeft;
+}
+
+[dir="rtl"] .animate__slideInLeft {
+    animation-name: slideInRight;
+}
+
+/* Attention seekers */
+@keyframes pulse {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.animate__pulse {
+    animation-name: pulse;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.1);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.1);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+.animate__heartBeat {
+    animation-name: heartBeat;
+    animation-duration: calc(var(--animate-duration) * 1.3);
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {
+    from,
+    20%,
+    53%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0);
+    }
+
+    40%,
+    43% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -30px, 0) scaleY(1.1);
+    }
+
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -15px, 0) scaleY(1.05);
+    }
+
+    80% {
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0) scaleY(0.95);
+    }
+
+    90% {
+        transform: translate3d(0, -4px, 0) scaleY(1.02);
+    }
+}
+
+.animate__bounce {
+    animation-name: bounce;
+    transform-origin: center bottom;
+}
+
+@keyframes flash {
+    from,
+    50%,
+    to {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+.animate__flash {
+    animation-name: flash;
+}
+
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.animate__rubberBand {
+    animation-name: rubberBand;
+}
+
+@keyframes tada {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    10%,
+    20% {
+        transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.animate__tada {
+    animation-name: tada;
+}
+
+/* انیمیشن‌های اختصاصی گالری هنری */
+@keyframes artReveal {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.animate__artReveal {
+    animation-name: artReveal;
+    animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+@keyframes frameIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.animate__frameIn {
+    animation-name: frameIn;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes gallerySpotlight {
+    0%, 100% {
+        box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6);
+    }
+}
+
+.animate__gallerySpotlight {
+    animation-name: gallerySpotlight;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+}
+
+@keyframes paintStroke {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.animate__paintStroke {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation-name: paintStroke;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes exhibitionCurtain {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left center;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+}
+
+.animate__exhibitionCurtain {
+    animation-name: exhibitionCurtain;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+[dir="rtl"] .animate__exhibitionCurtain {
+    animation-name: exhibitionCurtainRTL;
+}
+
+@keyframes exhibitionCurtainRTL {
+    0% {
+        transform: scaleX(0);
+        transform-origin: right center;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: right center;
+    }
+}

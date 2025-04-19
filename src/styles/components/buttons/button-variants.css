@@ -1,0 +1,401 @@
+/* button-variants.css - انواع مختلف دکمه‌ها */
+
+/* رنگ‌های دکمه */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-dark);
+    box-shadow: 0 0 0 3px rgba(58, 124, 178, 0.2);
+}
+
+.btn-primary:active {
+    background-color: var(--primary-dark);
+    transform: translateY(1px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--neutral-900);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    background-color: var(--secondary-dark);
+    box-shadow: 0 0 0 3px rgba(230, 177, 126, 0.2);
+}
+
+.btn-secondary:active {
+    background-color: var(--secondary-dark);
+    transform: translateY(1px);
+}
+
+.btn-success {
+    background-color: var(--success);
+    color: white;
+}
+
+.btn-success:hover, .btn-success:focus {
+    background-color: #3AAC6A;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+}
+
+.btn-success:active {
+    background-color: #3AAC6A;
+    transform: translateY(1px);
+}
+
+.btn-danger {
+    background-color: var(--error);
+    color: white;
+}
+
+.btn-danger:hover, .btn-danger:focus {
+    background-color: #D53939;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.btn-danger:active {
+    background-color: #D53939;
+    transform: translateY(1px);
+}
+
+.btn-warning {
+    background-color: var(--warning);
+    color: white;
+}
+
+.btn-warning:hover, .btn-warning:focus {
+    background-color: #E08C00;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.btn-warning:active {
+    background-color: #E08C00;
+    transform: translateY(1px);
+}
+
+.btn-info {
+    background-color: var(--info);
+    color: white;
+}
+
+.btn-info:hover, .btn-info:focus {
+    background-color: #2F74E0;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.btn-info:active {
+    background-color: #2F74E0;
+    transform: translateY(1px);
+}
+
+.btn-light {
+    background-color: var(--neutral-100);
+    color: var(--neutral-700);
+}
+
+.btn-light:hover, .btn-light:focus {
+    background-color: var(--neutral-200);
+    box-shadow: 0 0 0 3px rgba(229, 229, 229, 0.5);
+}
+
+.btn-light:active {
+    background-color: var(--neutral-200);
+    transform: translateY(1px);
+}
+
+.btn-dark {
+    background-color: var(--neutral-800);
+    color: white;
+}
+
+.btn-dark:hover, .btn-dark:focus {
+    background-color: var(--neutral-900);
+    box-shadow: 0 0 0 3px rgba(38, 38, 38, 0.3);
+}
+
+.btn-dark:active {
+    background-color: var(--neutral-900);
+    transform: translateY(1px);
+}
+
+/* دکمه‌های خط دار */
+.btn-outline-primary {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 0 3px rgba(58, 124, 178, 0.2);
+}
+
+.btn-outline-primary:active {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: white;
+    transform: translateY(1px);
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover, .btn-outline-secondary:focus {
+    background-color: var(--secondary-color);
+    color: var(--neutral-900);
+    box-shadow: 0 0 0 3px rgba(230, 177, 126, 0.2);
+}
+
+.btn-outline-secondary:active {
+    background-color: var(--secondary-dark);
+    border-color: var(--secondary-dark);
+    color: var(--neutral-900);
+    transform: translateY(1px);
+}
+
+.btn-outline-success {
+    background-color: transparent;
+    border: 1px solid var(--success);
+    color: var(--success);
+}
+
+.btn-outline-success:hover, .btn-outline-success:focus {
+    background-color: var(--success);
+    color: white;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+}
+
+.btn-outline-danger {
+    background-color: transparent;
+    border: 1px solid var(--error);
+    color: var(--error);
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:focus {
+    background-color: var(--error);
+    color: white;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.btn-outline-dark {
+    background-color: transparent;
+    border: 1px solid var(--neutral-800);
+    color: var(--neutral-800);
+}
+
+.btn-outline-dark:hover, .btn-outline-dark:focus {
+    background-color: var(--neutral-800);
+    color: white;
+    box-shadow: 0 0 0 3px rgba(38, 38, 38, 0.2);
+}
+
+/* دکمه‌های لینک */
+.btn-link {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    padding: 0;
+    text-decoration: none;
+}
+
+.btn-link:hover, .btn-link:focus {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+/* دکمه‌های نرم */
+.btn-soft-primary {
+    background-color: rgba(58, 124, 178, 0.1);
+    color: var(--primary-color);
+}
+
+.btn-soft-primary:hover, .btn-soft-primary:focus {
+    background-color: rgba(58, 124, 178, 0.2);
+    box-shadow: 0 0 0 3px rgba(58, 124, 178, 0.1);
+}
+
+.btn-soft-secondary {
+    background-color: rgba(230, 177, 126, 0.1);
+    color: var(--secondary-color);
+}
+
+.btn-soft-secondary:hover, .btn-soft-secondary:focus {
+    background-color: rgba(230, 177, 126, 0.2);
+    box-shadow: 0 0 0 3px rgba(230, 177, 126, 0.1);
+}
+
+.btn-soft-success {
+    background-color: rgba(74, 222, 128, 0.1);
+    color: var(--success);
+}
+
+.btn-soft-success:hover, .btn-soft-success:focus {
+    background-color: rgba(74, 222, 128, 0.2);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+}
+
+.btn-soft-danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+}
+
+.btn-soft-danger:hover, .btn-soft-danger:focus {
+    background-color: rgba(239, 68, 68, 0.2);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.btn-soft-dark {
+    background-color: rgba(38, 38, 38, 0.1);
+    color: var(--neutral-800);
+}
+
+.btn-soft-dark:hover, .btn-soft-dark:focus {
+    background-color: rgba(38, 38, 38, 0.2);
+    box-shadow: 0 0 0 3px rgba(38, 38, 38, 0.1);
+}
+
+/* دکمه‌های گرادیانتی */
+.btn-gradient-primary {
+    background-image: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+    color: white;
+}
+
+.btn-gradient-primary:hover, .btn-gradient-primary:focus {
+    background-image: linear-gradient(to right, var(--primary-dark), var(--primary-color));
+    box-shadow: 0 4px 15px rgba(58, 124, 178, 0.3);
+}
+
+.btn-gradient-secondary {
+    background-image: linear-gradient(to right, var(--secondary-color), var(--secondary-dark));
+    color: var(--neutral-900);
+}
+
+.btn-gradient-secondary:hover, .btn-gradient-secondary:focus {
+    background-image: linear-gradient(to right, var(--secondary-dark), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(230, 177, 126, 0.3);
+}
+
+.btn-gradient-success {
+    background-image: linear-gradient(to right, var(--success), #2D9E52);
+    color: white;
+}
+
+.btn-gradient-danger {
+    background-image: linear-gradient(to right, var(--error), #C42F2F);
+    color: white;
+}
+
+/* دکمه‌های هنری */
+.btn-artistic {
+    position: relative;
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.btn-artistic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn-artistic:hover {
+    color: white;
+}
+
+.btn-artistic:hover::before {
+    width: 100%;
+}
+
+.btn-artistic.btn-artistic-secondary {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-artistic.btn-artistic-secondary::before {
+    background-color: var(--secondary-color);
+}
+
+.btn-artistic.btn-artistic-secondary:hover {
+    color: var(--neutral-900);
+}
+
+/* دکمه با سایه */
+.btn-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-shadow:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn-shadow:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+/* دکمه‌های مخصوص پلتفرم گالری */
+.btn-gallery {
+    background-color: var(--gallery-accent-1);
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.03em;
+    padding: var(--spacing-sm) var(--spacing-xl);
+}
+
+.btn-gallery:hover, .btn-gallery:focus {
+    background-color: #95704A;
+    box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.2);
+}
+
+.btn-gallery.btn-gallery-outline {
+    background-color: transparent;
+    border: 2px solid var(--gallery-accent-1);
+    color: var(--gallery-accent-1);
+}
+
+.btn-gallery.btn-gallery-outline:hover, .btn-gallery.btn-gallery-outline:focus {
+    background-color: var(--gallery-accent-1);
+    color: white;
+}
+
+/* دارک مود */
+[data-theme="dark"] .btn-light {
+    background-color: var(--neutral-700);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .btn-light:hover,
+[data-theme="dark"] .btn-light:focus {
+    background-color: var(--neutral-600);
+}
+
+[data-theme="dark"] .btn-outline-light {
+    border-color: var(--neutral-600);
+    color: var(--neutral-400);
+}
+
+[data-theme="dark"] .btn-outline-light:hover,
+[data-theme="dark"] .btn-outline-light:focus {
+    background-color: var(--neutral-600);
+    color: var(--neutral-100);
+}
